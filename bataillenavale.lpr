@@ -1,3 +1,5 @@
+// ~ deps: affichage.pas ucarbitre.pas uiarbitre.pas UJoueurIA.pas UJoueur.pas
+
 program bataillenavale;
 
 {$mode objfpc}{$H+}
