@@ -1,3 +1,5 @@
+// ~ master: bataillenavale.lpr
+
 unit Affichage;
 
 {$mode objfpc}{$H+}

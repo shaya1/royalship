@@ -1,3 +1,5 @@
+// ~ master: bataillenavale.lpr
+
 unit UCarbitre;
 
 {$mode objfpc}{$H+}
