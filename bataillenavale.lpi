@@ -7,7 +7,7 @@
       <MainUnit Value="0"/>
       <IconPath Value="./"/>
       <TargetFileExt Value=".exe"/>
-      <ActiveEditorIndexAtStart Value="1"/>
+      <ActiveEditorIndexAtStart Value="2"/>
     </General>
     <PublishOptions>
       <Version Value="2"/>
@@ -31,10 +31,10 @@
         <Filename Value="bataillenavale.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="bataillenavale"/>
-        <CursorPos X="58" Y="11"/>
+        <CursorPos X="1" Y="17"/>
         <TopLine Value="1"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -46,7 +46,7 @@
         <CursorPos X="52" Y="10"/>
         <TopLine Value="16"/>
         <EditorIndex Value="0"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -56,30 +56,30 @@
         <CursorPos X="41" Y="15"/>
         <TopLine Value="1"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="ucarbitre.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UCarbitre"/>
-        <CursorPos X="15" Y="71"/>
-        <TopLine Value="56"/>
+        <CursorPos X="23" Y="63"/>
+        <TopLine Value="48"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="UJoueur.pas"/>
         <UnitName Value="UJoueur"/>
-        <CursorPos X="26" Y="7"/>
-        <TopLine Value="1"/>
+        <CursorPos X="33" Y="15"/>
+        <TopLine Value="5"/>
         <EditorIndex Value="4"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit4>
     </Units>
-    <JumpHistory Count="12" HistoryIndex="11">
+    <JumpHistory Count="24" HistoryIndex="23">
       <Position1>
         <Filename Value="UJoueur.pas"/>
         <Caret Line="1" Column="1" TopLine="1"/>
@@ -126,8 +126,56 @@
       </Position11>
       <Position12>
         <Filename Value="ucarbitre.pas"/>
-        <Caret Line="71" Column="15" TopLine="56"/>
+        <Caret Line="71" Column="16" TopLine="56"/>
       </Position12>
+      <Position13>
+        <Filename Value="ucarbitre.pas"/>
+        <Caret Line="10" Column="46" TopLine="1"/>
+      </Position13>
+      <Position14>
+        <Filename Value="ucarbitre.pas"/>
+        <Caret Line="68" Column="24" TopLine="57"/>
+      </Position14>
+      <Position15>
+        <Filename Value="ucarbitre.pas"/>
+        <Caret Line="73" Column="26" TopLine="57"/>
+      </Position15>
+      <Position16>
+        <Filename Value="ucarbitre.pas"/>
+        <Caret Line="24" Column="12" TopLine="9"/>
+      </Position16>
+      <Position17>
+        <Filename Value="ucarbitre.pas"/>
+        <Caret Line="73" Column="26" TopLine="57"/>
+      </Position17>
+      <Position18>
+        <Filename Value="ucarbitre.pas"/>
+        <Caret Line="87" Column="1" TopLine="57"/>
+      </Position18>
+      <Position19>
+        <Filename Value="ucarbitre.pas"/>
+        <Caret Line="73" Column="29" TopLine="54"/>
+      </Position19>
+      <Position20>
+        <Filename Value="ucarbitre.pas"/>
+        <Caret Line="75" Column="25" TopLine="57"/>
+      </Position20>
+      <Position21>
+        <Filename Value="bataillenavale.lpr"/>
+        <Caret Line="11" Column="58" TopLine="1"/>
+      </Position21>
+      <Position22>
+        <Filename Value="bataillenavale.lpr"/>
+        <Caret Line="17" Column="1" TopLine="1"/>
+      </Position22>
+      <Position23>
+        <Filename Value="ucarbitre.pas"/>
+        <Caret Line="75" Column="27" TopLine="57"/>
+      </Position23>
+      <Position24>
+        <Filename Value="bataillenavale.lpr"/>
+        <Caret Line="17" Column="1" TopLine="1"/>
+      </Position24>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

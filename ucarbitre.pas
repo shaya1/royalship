@@ -8,9 +8,6 @@ uses
   Classes,UIarbitre, UJoueur, SysUtils;
 
 Type Tplateau=array [1..10,1..10] of Integer;
-
-Type Ijoueur=Class
-     end;
      
 Type Carbitre=Class (Iarbitre)
 
@@ -68,14 +65,14 @@ Procedure Carbitre.Tour();
     Begin
       A:=J1.jouer;
 
-        If P2[A(0),A(1)]=0
+        If P2[A[0],A[1]]=0
         then J1.Rate
         else
           Begin
-          J1.Toucheadversaire;
-          J1.ToucheJoueur;
+          J1.ToucheAdversaire;
+          J1.ToucheJoueur(A);
           J1.Couleadversaire;
-          J1.Coulejoueur;
+          J1.CouleJoueur(A);
           end;
     end;
 
