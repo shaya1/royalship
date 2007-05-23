@@ -5,7 +5,7 @@ unit UCarbitre;
 interface
 
 uses
-  Classes,UIarbitre, SysUtils;
+  Classes,UIarbitre, UJoueur, SysUtils;
 
 Type Tplateau=array [1..10,1..10] of Integer;
 
