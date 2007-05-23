@@ -1,17 +1,16 @@
 <?xml version="1.0"?>
 <CONFIG>
   <ProjectOptions>
-    <PathDelim Value="\"/>
+    <PathDelim Value="/"/>
     <Version Value="5"/>
     <General>
       <MainUnit Value="0"/>
       <IconPath Value="./"/>
       <TargetFileExt Value=".exe"/>
-      <ActiveEditorIndexAtStart Value="3"/>
+      <ActiveEditorIndexAtStart Value="4"/>
     </General>
     <PublishOptions>
       <Version Value="2"/>
-      <DestinationDirectory Value="$(TestDir)\publishedproject\"/>
       <IgnoreBinaries Value="False"/>
       <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
       <ExcludeFileFilter Value="*.(bak|ppu|ppw|o|so);*~;backup"/>
@@ -19,7 +18,7 @@
     <RunParams>
       <local>
         <FormatVersion Value="1"/>
-        <LaunchingApplication PathPlusParams="\usr\X11R6\bin\xterm -T 'Lazarus Run Output' -e $(LazarusDir)\tools\runwait.sh $(TargetCmdLine)"/>
+        <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
       </local>
     </RunParams>
     <RequiredPackages Count="1">
@@ -27,7 +26,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="bataillenavale.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -45,7 +44,7 @@
         <ResourceFilename Value="affichage.lrs"/>
         <UnitName Value="Affichage"/>
         <CursorPos X="52" Y="10"/>
-        <TopLine Value="32"/>
+        <TopLine Value="23"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
@@ -64,20 +63,28 @@
         <Filename Value="ucarbitre.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UCarbitre"/>
-        <CursorPos X="1" Y="89"/>
-        <TopLine Value="66"/>
+        <CursorPos X="29" Y="8"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="3"/>
         <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="UJoueur.pas"/>
+        <UnitName Value="UJoueur"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="4"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit4>
     </Units>
     <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>
-    <PathDelim Value="\"/>
     <SearchPaths>
-      <SrcPath Value="$(LazarusDir)\lcl\;$(LazarusDir)\lcl\interfaces\$(LCLWidgetType)\"/>
+      <SrcPath Value="$(LazarusDir)/lcl/;$(LazarusDir)/lcl/interfaces/$(LCLWidgetType)/"/>
     </SearchPaths>
     <CodeGeneration>
       <Generate Value="Faster"/>
