@@ -17,6 +17,8 @@ type CJoueurIA = class(IJoueur)
 	
 	procedure ToucheJoueur(coup: TCase); override;
 	procedure CouleJoueur(coup: TCase); override;
+	
+	procedure Invalide; override;
 
 private
 	fPlateau: array[0..11,0..11] of integer; // 0: inconnu, 1: bateau, 2: coup à l'eau
@@ -106,6 +108,11 @@ begin
 end;
 
 procedure CJoueurIA.CouleJoueur(coup: TCase);
+begin
+
+end;
+
+procedure CJoueurIA.Invalide;
 begin
 
 end;
