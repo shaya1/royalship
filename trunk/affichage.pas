@@ -32,7 +32,7 @@ type
     Label8: TLabel;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
-    procedure Label3Click(Sender: TObject);
+    procedure StringGrid2Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -40,19 +40,24 @@ type
   end; 
 
 var
-  Form1: TForm1; 
+  Form1: TForm1;JoueurHumain,JoueurOrdi:IJoueur;Arbitre:Iarbitre;
 
 implementation
 
 { TForm1 }
 
-procedure TForm1.Label3Click(Sender: TObject);
+procedure TForm1.StringGrid2Click(Sender: TObject,Arbitre);
 begin
-
+Arbitre.Tour;
 end;
 
 initialization
   {$I affichage.lrs}
+
+JoueurHumain.create(Form1);
+JoueurOrdi.create(Form1);
+Arbitre.Create;
+Arbitre.ajouterJoueur(JoueurHumain,JoueurOrdi);
 
 end.
 
