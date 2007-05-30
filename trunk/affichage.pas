@@ -8,7 +8,7 @@ interface
 
 uses
    Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Grids, ExtCtrls;
+  Grids, ExtCtrls, uiarbitre;
 
 type
 
@@ -32,7 +32,6 @@ type
     Label8: TLabel;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
-    procedure StringGrid2Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -43,18 +42,8 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.StringGrid2Click(Sender: TObject,Arbitre);
-begin
-Arbitre.Tour;
-end;
-
 initialization
   {$I affichage.lrs}
-
-JoueurHumain.create(Form1);
-JoueurOrdi.create(Form1);
-Arbitre.Create;
-Arbitre.ajouterJoueur(JoueurHumain,JoueurOrdi);
 
 end.
 
