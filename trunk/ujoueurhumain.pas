@@ -54,6 +54,7 @@ end;
 procedure CJoueurHumain.Rate;
 begin
 	fAff.ChangerMessage('Coup à l''eau :(');
+	fAff.GrilleOrdinateurLoupe(dernierCoup);
 end;
 
 procedure CJoueurHumain.ToucheJoueur(coup: TCase);
