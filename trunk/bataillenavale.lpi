@@ -7,7 +7,7 @@
       <MainUnit Value="0"/>
       <IconPath Value="./"/>
       <TargetFileExt Value=".exe"/>
-      <ActiveEditorIndexAtStart Value="0"/>
+      <ActiveEditorIndexAtStart Value="5"/>
     </General>
     <PublishOptions>
       <Version Value="2"/>
@@ -31,9 +31,9 @@
         <Filename Value="bataillenavale.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="bataillenavale"/>
-        <CursorPos X="78" Y="13"/>
+        <CursorPos X="4" Y="9"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -43,8 +43,8 @@
         <IsPartOfProject Value="True"/>
         <ResourceFilename Value="affichage.lrs"/>
         <UnitName Value="Affichage"/>
-        <CursorPos X="14" Y="49"/>
-        <TopLine Value="30"/>
+        <CursorPos X="4" Y="10"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
@@ -53,9 +53,9 @@
         <Filename Value="uiarbitre.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UIarbitre"/>
-        <CursorPos X="45" Y="16"/>
+        <CursorPos X="4" Y="10"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -63,9 +63,9 @@
         <Filename Value="ucarbitre.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UCarbitre"/>
-        <CursorPos X="14" Y="83"/>
-        <TopLine Value="77"/>
-        <EditorIndex Value="3"/>
+        <CursorPos X="4" Y="10"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="5"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -79,19 +79,42 @@
       <Unit5>
         <Filename Value="ujoueuria.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="ujoueuria"/>
+        <UnitName Value="UJoueurIA"/>
+        <CursorPos X="7" Y="7"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="4"/>
         <UsageCount Value="20"/>
-        <SyntaxHighlighter Value="Text"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="ujoueur.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="ujoueur"/>
+        <UnitName Value="UJoueur"/>
+        <CursorPos X="7" Y="7"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="1"/>
         <UsageCount Value="20"/>
-        <SyntaxHighlighter Value="Text"/>
+        <Loaded Value="True"/>
       </Unit6>
     </Units>
-    <JumpHistory Count="0" HistoryIndex="-1"/>
+    <JumpHistory Count="4" HistoryIndex="3">
+      <Position1>
+        <Filename Value="affichage.pas"/>
+        <Caret Line="47" Column="11" TopLine="33"/>
+      </Position1>
+      <Position2>
+        <Filename Value="affichage.pas"/>
+        <Caret Line="43" Column="41" TopLine="28"/>
+      </Position2>
+      <Position3>
+        <Filename Value="affichage.pas"/>
+        <Caret Line="40" Column="8" TopLine="30"/>
+      </Position3>
+      <Position4>
+        <Filename Value="affichage.pas"/>
+        <Caret Line="46" Column="50" TopLine="30"/>
+      </Position4>
+    </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>

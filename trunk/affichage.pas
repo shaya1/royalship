@@ -7,7 +7,7 @@ unit Affichage;
 interface
 
 uses
-  Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, StdCtrls,
+   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, StdCtrls,
   Grids, ExtCtrls;
 
 type
@@ -38,9 +38,6 @@ type
   public
     { public declarations }
   end; 
-
-var
-  Form1: TForm1;JoueurHumain,JoueurOrdi:IJoueur;Arbitre:Iarbitre;
 
 implementation
 

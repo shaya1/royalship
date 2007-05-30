@@ -6,7 +6,7 @@ program bataillenavale;
 
 uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
-  cthreads,
+   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms
