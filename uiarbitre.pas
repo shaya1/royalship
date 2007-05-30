@@ -6,8 +6,7 @@ unit UIarbitre;
 
 interface
 
-uses
-   Affichage, SysUtils;
+Uses SysUtils;
 
 type TCase = array[0..1] of integer;
 
@@ -22,8 +21,6 @@ Type Iarbitre=Class
 end;
 
 implementation
-
-
 
 end.
 
