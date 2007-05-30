@@ -34,12 +34,13 @@ type
     Label8: TLabel;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
+    procedure OnMouseDown(Sender: TOBject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     Procedure SetArbitre(AArbitre:IArbitre);
     Procedure ChangerMessage(A:string);
     Procedure GrilleHumainTouche(C:TCase);
     Procedure GrilleOrdinateurTouche(C:TCase);
     Procedure GrilleOrdinateurLoupe(C:Tcase);
-    procedure StringGrid2Click(Sender: TObject);
     Procedure coloriecase(C:Tcase;couleur:Tcolor;StringgridA:Tstringgrid);
     Function DernierecaseCliquee:Tcase;
 
@@ -56,6 +57,14 @@ Procedure Tform1.SetArbitre(AArbitre:IArbitre);
 Begin
 Arbitre:=AArbitre;
 End;
+
+procedure TForm1.OnMouseDown(Sender: TOBject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+var L, C: integer;
+begin
+Stringgrid2.MousetoCell(X,Y,L,C);
+GrilleHumaintouche(LastCase);
+end;
 
 Function Tform1.DernierecaseCliquee:Tcase;
 Begin
@@ -91,14 +100,6 @@ procedure TForm1.GrilleOrdinateurLoupe(C: Tcase);
   Begin
   ColorieCase(C,clblue,Stringgrid2);
   end;
-
-procedure TForm1.StringGrid2Click(Sender: TObject);
-Var X,Y:integer;
-begin
-Stringgrid2.MousetoCell(X,Y,LastCase[1],LastCase[0]);
-GrilleHumaintouche(LastCase);
-//Arbitre.Tour();
-end;
 
 initialization
   {$I affichage.lrs}
