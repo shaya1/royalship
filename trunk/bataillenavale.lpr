@@ -10,7 +10,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms
-  { add your units here }, Affichage, UIarbitre,Ucarbitre;
+  { add your units here }, Affichage, UIarbitre,Ucarbitre, ujoueuria, ujoueur;
 
 begin
   Application.Initialize;

@@ -26,12 +26,12 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="7">
       <Unit0>
         <Filename Value="bataillenavale.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="bataillenavale"/>
-        <CursorPos X="1" Y="17"/>
+        <CursorPos X="78" Y="13"/>
         <TopLine Value="1"/>
         <EditorIndex Value="2"/>
         <UsageCount Value="29"/>
@@ -44,7 +44,7 @@
         <ResourceFilename Value="affichage.lrs"/>
         <UnitName Value="Affichage"/>
         <CursorPos X="14" Y="49"/>
-        <TopLine Value="31"/>
+        <TopLine Value="30"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
@@ -64,7 +64,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="UCarbitre"/>
         <CursorPos X="14" Y="83"/>
-        <TopLine Value="78"/>
+        <TopLine Value="77"/>
         <EditorIndex Value="3"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
@@ -74,133 +74,24 @@
         <UnitName Value="UJoueur"/>
         <CursorPos X="20" Y="13"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="4"/>
         <UsageCount Value="12"/>
-        <Loaded Value="True"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="ujoueuria.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ujoueuria"/>
+        <UsageCount Value="20"/>
+        <SyntaxHighlighter Value="Text"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="ujoueur.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ujoueur"/>
+        <UsageCount Value="20"/>
+        <SyntaxHighlighter Value="Text"/>
+      </Unit6>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
-      <Position1>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="72" Column="29" TopLine="62"/>
-      </Position1>
-      <Position2>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="73" Column="11" TopLine="58"/>
-      </Position2>
-      <Position3>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="72" Column="30" TopLine="58"/>
-      </Position3>
-      <Position4>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="107" Column="4" TopLine="78"/>
-      </Position4>
-      <Position5>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="94" Column="28" TopLine="59"/>
-      </Position5>
-      <Position6>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="74" Column="15" TopLine="57"/>
-      </Position6>
-      <Position7>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="75" Column="8" TopLine="60"/>
-      </Position7>
-      <Position8>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="74" Column="13" TopLine="62"/>
-      </Position8>
-      <Position9>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="108" Column="4" TopLine="79"/>
-      </Position9>
-      <Position10>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="107" Column="9" TopLine="1"/>
-      </Position10>
-      <Position11>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="93" Column="7" TopLine="78"/>
-      </Position11>
-      <Position12>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="92" Column="12" TopLine="78"/>
-      </Position12>
-      <Position13>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="107" Column="4" TopLine="78"/>
-      </Position13>
-      <Position14>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="96" Column="27" TopLine="77"/>
-      </Position14>
-      <Position15>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="106" Column="4" TopLine="77"/>
-      </Position15>
-      <Position16>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="97" Column="12" TopLine="77"/>
-      </Position16>
-      <Position17>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="107" Column="4" TopLine="78"/>
-      </Position17>
-      <Position18>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="72" Column="38" TopLine="60"/>
-      </Position18>
-      <Position19>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="106" Column="4" TopLine="77"/>
-      </Position19>
-      <Position20>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="73" Column="15" TopLine="51"/>
-      </Position20>
-      <Position21>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="74" Column="9" TopLine="59"/>
-      </Position21>
-      <Position22>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="75" Column="7" TopLine="59"/>
-      </Position22>
-      <Position23>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="106" Column="4" TopLine="77"/>
-      </Position23>
-      <Position24>
-        <Filename Value="affichage.pas"/>
-        <Caret Line="32" Column="30" TopLine="22"/>
-      </Position24>
-      <Position25>
-        <Filename Value="affichage.pas"/>
-        <Caret Line="46" Column="4" TopLine="22"/>
-      </Position25>
-      <Position26>
-        <Filename Value="affichage.pas"/>
-        <Caret Line="33" Column="49" TopLine="20"/>
-      </Position26>
-      <Position27>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="107" Column="5" TopLine="16"/>
-      </Position27>
-      <Position28>
-        <Filename Value="UJoueur.pas"/>
-        <Caret Line="19" Column="67" TopLine="11"/>
-      </Position28>
-      <Position29>
-        <Filename Value="ucarbitre.pas"/>
-        <Caret Line="27" Column="27" TopLine="12"/>
-      </Position29>
-      <Position30>
-        <Filename Value="UJoueur.pas"/>
-        <Caret Line="13" Column="13" TopLine="1"/>
-      </Position30>
-    </JumpHistory>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="5"/>
