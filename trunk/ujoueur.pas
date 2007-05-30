@@ -4,7 +4,7 @@ unit UJoueur;
 
 interface
 
-uses Affichage;
+uses Affichage,Uiarbitre;
 
 type IJoueur = class
 	fAff: TForm1;

@@ -4,7 +4,7 @@ unit UJoueurIA;
 
 interface
 
-uses Affichage, UJoueur;
+uses Affichage,UJoueur,uiarbitre;
 
 type CJoueurIA = class(IJoueur)
 	constructor Create(aAff: TForm1); override;

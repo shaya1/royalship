@@ -10,7 +10,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms
-  { add your units here }, Affichage, UIarbitre,Ucarbitre, ujoueuria, ujoueurhumain;
+  { add your units here }, Affichage, UIarbitre,Ujoueur,Ucarbitre, ujoueuria, ujoueurhumain;
 
 Var Form1:TForm1;
     JoueurH, JoueurO: IJoueur;
