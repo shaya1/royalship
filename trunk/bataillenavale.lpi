@@ -43,7 +43,7 @@
         <IsPartOfProject Value="True"/>
         <ResourceFilename Value="affichage.lrs"/>
         <UnitName Value="Affichage"/>
-        <CursorPos X="23" Y="81"/>
+        <CursorPos X="32" Y="35"/>
         <TopLine Value="64"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="32"/>
