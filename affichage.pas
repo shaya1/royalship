@@ -32,7 +32,7 @@ type
     Label8: TLabel;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
-    Procedure ChangerMessage(A:tstring);
+    Procedure ChangerMessage(A:string);
     Procedure GrilleHumainTouche(C:TCase);
     Procedure GrilleOrdinateurTouche(C:TCase);
     Procedure GrilleOrdinateurLoupe(C:Tcase);
@@ -49,7 +49,7 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.ChangerMessage(A: tstring);
+procedure TForm1.ChangerMessage(A: string);
   begin
   Edit6.Text:=A;
   end;
