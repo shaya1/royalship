@@ -7,7 +7,7 @@ unit UIarbitre;
 interface
 
 uses
-  Affichage, SysUtils;
+   Affichage, SysUtils;
 
 type TCase = array[0..1] of integer;
 
