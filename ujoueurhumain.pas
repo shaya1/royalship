@@ -2,26 +2,25 @@ unit UJoueurHumain;
 
 interface 
 
-uses UJoueur;
+uses UJoueur,uiarbitre,affichage;
 
 type CJoueurHumain = class(IJoueur)
-	fAff: TForm1;
 	
 	constructor Create(aAff: TForm1); virtual;
 	destructor Destroy; virtual;
 	
-	function Jouer: TCase; virtual; abstract;
+	function Jouer: TCase; virtual;
 	
 	// Résultat de notre coup précédent
-	procedure ToucheAdversaire; virtual; abstract; // Adversaire touché
-	procedure CouleAdversaire; virtual; abstract; // Adversaire coulé
-	procedure Rate; virtual; abstract; // Coup à l'eau
+	procedure ToucheAdversaire; virtual; // Adversaire touché
+	procedure CouleAdversaire; virtual;  // Adversaire coulé
+	procedure Rate; virtual; // Coup à l'eau
 	
 	// Résultat du coup de l'adversaire
-	procedure ToucheJoueur(coup: TCase); virtual; abstract; // On a été touché
-	procedure CouleJoueur(coup: TCase); virtual; abstract; // On a été coulé
+	procedure ToucheJoueur(coup: TCase); virtual; // On a été touché
+	procedure CouleJoueur(coup: TCase); virtual; // On a été coulé
 
-	procedure Invalide;virtual;abstract;
+	procedure Invalide;virtual;
 
 private
 	fDernierCoup: TCase;
@@ -43,7 +42,7 @@ end;
 procedure CJoueurHumain.ToucheAdversaire;
 begin
 	fAff.ChangerMessage('Touché !');
-	fAff.GrilleOrdinateurTouche(dernierCoup);
+	fAff.GrilleOrdinateurTouche(fdernierCoup);
 end;
 
 procedure CJoueurHumain.CouleAdversaire;
@@ -54,7 +53,7 @@ end;
 procedure CJoueurHumain.Rate;
 begin
 	fAff.ChangerMessage('Coup à l''eau :(');
-	fAff.GrilleOrdinateurLoupe(dernierCoup);
+	fAff.GrilleOrdinateurLoupe(fdernierCoup);
 end;
 
 procedure CJoueurHumain.ToucheJoueur(coup: TCase);
@@ -71,5 +70,9 @@ procedure CJoueurHumain.Invalide;
 begin
 	fAff.ChangerMessage('Mauvais coup, essayez encore...');
 end;
+
+Destructor CjoueurHumain.Destroy;
+Begin
+End;
 
 end.

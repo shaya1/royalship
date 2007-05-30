@@ -8,8 +8,10 @@ interface
 
 uses
    Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Grids, ExtCtrls;
+  Grids, ExtCtrls, Uiarbitre;
 
+var arbitre:Iarbitre;
+    LastCase:Tcase;
 type
 
   { TForm1 }
@@ -32,12 +34,14 @@ type
     Label8: TLabel;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
+    Procedure SetArbitre(AArbitre:IArbitre);
     Procedure ChangerMessage(A:string);
     Procedure GrilleHumainTouche(C:TCase);
     Procedure GrilleOrdinateurTouche(C:TCase);
     Procedure GrilleOrdinateurLoupe(C:Tcase);
     procedure StringGrid2Click(Sender: TObject);
-    
+    Procedure coloriecase(C:Tcase;couleur:Tcolor;StringgridA:Tstringgrid);
+    Function DernierecaseCliquee:Tcase;
 
   private
     { private declarations }
@@ -48,6 +52,14 @@ type
 implementation
 
 { TForm1 }
+Procedure Tform1.SetArbitre(AArbitre:IArbitre);
+Begin
+Arbitre:=AArbitre;
+End;
+
+Function Tform1.DernierecaseCliquee:Tcase;
+Begin
+End;
 
 procedure TForm1.ChangerMessage(A: string);
   begin
@@ -73,7 +85,6 @@ procedure TForm1.GrilleOrdinateurTouche(C: TCase);
   Begin
   ColorieCase(C,clred,Stringgrid2);
   End;
-end;
 
 procedure TForm1.GrilleOrdinateurLoupe(C: Tcase);
 
@@ -81,9 +92,12 @@ procedure TForm1.GrilleOrdinateurLoupe(C: Tcase);
   ColorieCase(C,clblue,Stringgrid2);
   end;
 
-procedure TForm1.StringGrid2Click(Sender: TObject;Arbitre:IJoueur);
+procedure TForm1.StringGrid2Click(Sender: TObject);
+Var X,Y:integer;
 begin
-Arbitre.Tour();
+Stringgrid2.MousetoCell(X,Y,LastCase[1],LastCase[0]);
+GrilleHumaintouche(LastCase);
+//Arbitre.Tour();
 end;
 
 initialization
