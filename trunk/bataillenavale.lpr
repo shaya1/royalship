@@ -13,6 +13,7 @@ uses
   { add your units here }, Affichage, UIarbitre,Ucarbitre, ujoueuria, ujoueur;
 
 Var Form1:TForm1;
+
 begin
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
