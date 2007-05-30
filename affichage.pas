@@ -8,7 +8,7 @@ interface
 
 uses
    Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Grids, ExtCtrls, uiarbitre;
+  Grids, ExtCtrls;
 
 type
 
@@ -32,6 +32,13 @@ type
     Label8: TLabel;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
+    Procedure ChangerMessage(A:tstring);
+    Procedure GrilleHumainTouche(C:TCase);
+    Procedure GrilleOrdinateurTouche(C:TCase);
+    Procedure GrilleOrdinateurLoupe(C:Tcase);
+    procedure StringGrid2Click(Sender: TObject);
+    
+
   private
     { private declarations }
   public
@@ -42,8 +49,46 @@ implementation
 
 { TForm1 }
 
+procedure TForm1.ChangerMessage(A: tstring);
+  begin
+  Edit6.Text:=A;
+  end;
+  
+Procedure Tform1.coloriecase(C:Tcase;couleur:Tcolor;StringgridA:Tstringgrid);
+  Var Casegrid:TRect;
+  begin
+  Casegrid:=StringGridA.CellRect(C[0],C[1]);
+  StringGridA.canvas.brush.color:=couleur;
+  StringGridA.canvas.FillRect(Casegrid);
+  End;
+
+procedure TForm1.GrilleHumainTouche(C: TCase);
+
+  Begin
+  ColorieCase(C,clred,Stringgrid1);
+  end;
+
+procedure TForm1.GrilleOrdinateurTouche(C: TCase);
+
+  Begin
+  ColorieCase(C,clred,Stringgrid2);
+  End;
+end;
+
+procedure TForm1.GrilleOrdinateurLoupe(C: Tcase);
+
+  Begin
+  ColorieCase(C,clblue,Stringgrid2);
+  end;
+
+procedure TForm1.StringGrid2Click(Sender: TObject;Arbitre:IJoueur);
+begin
+Arbitre.Tour();
+end;
+
 initialization
   {$I affichage.lrs}
+
 
 end.
 
