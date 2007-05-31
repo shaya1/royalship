@@ -60,9 +60,8 @@ End;
 
 procedure TForm1.OnMouseDown(Sender: TOBject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
-var L, C: integer;
 begin
-Stringgrid2.MousetoCell(X,Y,L,C);
+Stringgrid2.MousetoCell(X,Y,LastCase[0],LastCase[1]);
 GrilleHumaintouche(LastCase);
 end;
 
