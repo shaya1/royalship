@@ -75,7 +75,7 @@ End;
 
 procedure TForm1.ChangerMessage(A: string);
 begin
-  writeln('Message: ', A);
+  //~ writeln('Message: ', A);
   Edit6.Text:=A;
 end;
   
@@ -98,19 +98,19 @@ End;
 
 procedure TForm1.GrilleHumainTouche(C: TCase);
 Begin
-  writeln('GrilleHumainLoupe: ', C[0], ' ', C[1]);
+  //~ writeln('GrilleHumainLoupe: ', C[0], ' ', C[1]);
   ColorieCase(C,clred,Stringgrid1);
 end;
 
 procedure TForm1.GrilleOrdinateurTouche(C: TCase);
 Begin
-  writeln('GrilleOrdinateurTouche: ', C[0], ' ', C[1]);
+  //~ writeln('GrilleOrdinateurTouche: ', C[0], ' ', C[1]);
   ColorieCase(C,clred,Stringgrid2);
 End;
 
 procedure TForm1.GrilleOrdinateurLoupe(C: Tcase);
 Begin
-  writeln('GrilleOrdinateurLoupe: ', C[0], ' ', C[1]);
+  //~ writeln('GrilleOrdinateurLoupe: ', C[0], ' ', C[1]);
   ColorieCase(C,clblue,Stringgrid2);
 end;
 

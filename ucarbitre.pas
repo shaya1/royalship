@@ -75,11 +75,11 @@ Procedure Carbitre.Tour();
       C: boolean;
   Begin
     A:=J1.jouer;
+    writeln('joue en ', A[0], ',', A[1]);
     Coup := P2[A[0],A[1]]>=0;
     C := P2[A[0],A[1]]>=0;
     
     if C then begin
-      writeln('en ', A[0], ',', A[1]);
       If P2[A[0],A[1]]=0 then
         J1.Rate
       else begin
@@ -97,12 +97,17 @@ Procedure Carbitre.Tour();
   end;
 Begin
   writeln('');
-  write('Humain joue ');
+  writeln('---------------------------');
+  write('Humain ');
   if Coup(fJh,fJo,PlateauO) then
     repeat
       writeln('');
       writeln('Ordinateur joue ');
+      //~ writeln('Plateau humain, selon arbitre:');
+      //~ debug;
     until Coup(fJo,fJh,PlateauH);
+    //~ writeln('Plateau humain, selon IA (apres coup):');
+    //~ fJo.debug;
 end;
 
 procedure CArbitre.debug;
@@ -110,7 +115,7 @@ var i, j: integer;
 begin
   for i := 0 to 9 do begin
     for j := 0 to 9 do
-      write(PlateauO[j,i], ' ');
+      write(PlateauH[j,i], ' ');
     writeln('');
   end;
 end;

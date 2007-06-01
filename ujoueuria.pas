@@ -22,8 +22,8 @@ type CJoueurIA = class(IJoueur)
 	procedure Perd; override;
 	procedure Invalide; override;
 
+	procedure debug; override;
 private
-	procedure debug;
 
 	fPlateau: array[0..11,0..11] of integer; // 0: inconnu, 1: bateau, 2: coup à l'eau
 	fSize: integer; // taille pile
@@ -59,30 +59,34 @@ var c, c2: TCase;
     di, dj: integer;
 	depile: boolean;
 begin
+	//~ writeln('Plateau humain, selon IA (avant coup)');
 	//~ debug;
-	if fSize = 0 then begin
+	if fSize = 0 then begin // Tous les coups réussis ont ete explorés, on joue aléatoirement
 		repeat
 			c[0] := random(10);
 			c[1] := random(10);
-		until fPlateau[c[0],c[1]]=0;
+		until fPlateau[c[0]+1,c[1]+1]=0; // on ne joue pas sur une case dejà jouée...
 		
 		Jouer := c;
 		fDernierCoup := c;
-	end else begin
+	end else begin // on explore autour des coups réussis
 		depile := True;
-		c := fPile[fSize-1];
+		c := fPile[fSize-1]; // dernier coup réussi
 		
 		for di := -1 to 1 do
 			for dj := -1 to 1 do
-				if fPlateau[c[0]+di,c[1]+dj] = 0 then begin
+				if (fPlateau[c[0]+di+1,c[1]+dj+1] = 0) and ((di = 0) or (dj = 0)) then begin
+					// pas encore joué sur cette case
 					depile := False;
 					c2[0] := c[0]+di;
 					c2[1] := c[1]+dj;
 				end;
 		
 		if depile then begin
+			// tous les coups autour de la dernière case réussie ont été explorés
+			// on retire le coup de la liste des coups à explorer
 			fSize := fSize - 1;
-			Jouer := Jouer;
+			Jouer := self.Jouer;
 		end else begin
 			Jouer := c2;
 			fDernierCoup := c2;
@@ -93,7 +97,7 @@ end;
 procedure CJoueurIA.ToucheAdversaire;
 begin
 	writeln('IA: AdvTouche (', fDernierCoup[0], ',', fDernierCoup[1], ')');
-	fPlateau[fDernierCoup[0],fDernierCoup[1]]:=1;
+	fPlateau[fDernierCoup[0]+1,fDernierCoup[1]+1]:=1;
 	fPile[fSize] := fDernierCoup;
 	fSize := fSize + 1;
 end;
@@ -101,12 +105,15 @@ end;
 procedure CJoueurIA.CouleAdversaire;
 begin
 	writeln('IA: AdvCoule (', fDernierCoup[0], ',', fDernierCoup[1], ')');
+	fPlateau[fDernierCoup[0]+1,fDernierCoup[1]+1]:=1;
+	fPile[fSize] := fDernierCoup;
+	fSize := fSize + 1;
 end;
 
 procedure CJoueurIA.Rate;
 begin
 	writeln('IA: Rate (', fDernierCoup[0], ',', fDernierCoup[1], ')');
-	fPlateau[fDernierCoup[0],fDernierCoup[1]]:=2;
+	fPlateau[fDernierCoup[0]+1,fDernierCoup[1]+1]:=2;
 end;
 
 procedure CJoueurIA.ToucheJoueur(coup: TCase);
@@ -137,12 +144,18 @@ end;
 procedure CJoueurIA.debug;
 var i, j: integer;
 begin
-	for i := 1 to 10 do begin
-		for j := 1 to 10 do begin
-			write(fPlateau[i,j], ' ');
-		end;
-		writeln('');
+	//~ for i := 1 to 10 do begin
+		//~ for j := 1 to 10 do begin
+			//~ write(fPlateau[j,i], ' ');
+		//~ end;
+		//~ writeln('');
+	//~ end;
+	
+	write('Pile (', fSize, '): ');
+	for i := 0 to fSize - 1 do begin
+		write('(', fPile[i][0],',', fPile[i][1],') ')
 	end;
+	writeln('');
 end;
 
 end.

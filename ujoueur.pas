@@ -26,6 +26,8 @@ type IJoueur = class
 	procedure Gagne; virtual;abstract;
 	procedure Perd; virtual;abstract;
 	procedure Invalide; virtual;abstract;
+
+	procedure debug; virtual;
 end;
 
 implementation
@@ -37,6 +39,11 @@ end;
 
 destructor IJoueur.Destroy;
 begin
+	
+end;
+
+procedure IJoueur.debug;
+begin;
 	
 end;
 
