@@ -62,7 +62,10 @@ procedure TForm1.OnMouseDown(Sender: TOBject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Stringgrid2.MousetoCell(X,Y,LastCase[0],LastCase[1]);
-  Arbitre.Tour;
+  LastCase[0] := LastCase[0] - 1;
+  LastCase[1] := LastCase[1] - 1;
+  if (0 <= LastCase[0]) and (0 <= LastCase[1]) and (9 >= LastCase[0]) and (9 >= LastCase[1]) then
+    Arbitre.Tour;
 end;
 
 Function Tform1.DernierecaseCliquee:Tcase;
@@ -88,7 +91,8 @@ begin
     sCouleur := 'rouge';
   if couleur = clblue then
     sCouleur := 'bleu';
-  
+  C[0] := C[0] + 1;
+  C[1] := C[1] + 1;
   StringGridA.Cells[C[0],C[1]] := sCouleur;
 End;
 
