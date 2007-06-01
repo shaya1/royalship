@@ -18,6 +18,8 @@ type CJoueurIA = class(IJoueur)
 	procedure ToucheJoueur(coup: TCase); override;
 	procedure CouleJoueur(coup: TCase); override;
 	
+	procedure Gagne; override;
+	procedure Perd; override;
 	procedure Invalide; override;
 
 private
@@ -118,6 +120,16 @@ begin
 end;
 
 procedure CJoueurIA.Invalide;
+begin
+	
+end;
+
+procedure CJoueurIA.Gagne;
+begin
+	
+end;
+
+procedure CJoueurIA.Perd;
 begin
 	
 end;

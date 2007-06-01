@@ -23,6 +23,8 @@ type IJoueur = class
 	procedure ToucheJoueur(coup: TCase); virtual; abstract; // On a été touché
 	procedure CouleJoueur(coup: TCase); virtual; abstract; // On a été coulé
 
+	procedure Gagne; virtual;abstract;
+	procedure Perd; virtual;abstract;
 	procedure Invalide; virtual;abstract;
 end;
 
