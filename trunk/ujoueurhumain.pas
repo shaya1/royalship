@@ -68,7 +68,7 @@ end;
 
 procedure CJoueurHumain.CouleJoueur(coup: TCase);
 begin
-	
+	fAff.GrilleHumainTouche(coup);
 end;
 
 procedure CJoueurHumain.Invalide;
