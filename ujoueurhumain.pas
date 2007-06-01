@@ -52,6 +52,7 @@ end;
 procedure CJoueurHumain.CouleAdversaire;
 begin
 	fAff.ChangerMessage('Coule !');
+	fAff.GrilleOrdinateurTouche(fdernierCoup);
 end;
 
 procedure CJoueurHumain.Rate;

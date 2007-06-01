@@ -59,7 +59,7 @@ var c, c2: TCase;
     di, dj: integer;
 	depile: boolean;
 begin
-	debug;
+	//~ debug;
 	if fSize = 0 then begin
 		repeat
 			c[0] := random(10);
