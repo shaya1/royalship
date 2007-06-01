@@ -73,6 +73,8 @@ Procedure Carbitre.Tour();
     End;
   Var A:TCase;
       C: boolean;
+      i, j: integer;
+      G: boolean;
   Begin
     A:=J1.jouer;
     writeln('joue en ', A[0], ',', A[1]);
@@ -90,6 +92,18 @@ Procedure Carbitre.Tour();
         end else begin
           J1.Couleadversaire;
           J2.CouleJoueur(A);
+          
+          // Verifie si le joueur a gagné (le bateau coule était le seul restant)
+          G := true;
+          for i := 0 to 9 do
+            for j := 0 to 9 do
+              if P2[i,j] > 0 then
+                G := false;
+          
+          if G then begin
+            J1.Gagne;
+            J2.Perd;
+          end;
         end;
       end;
     end else

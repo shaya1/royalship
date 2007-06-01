@@ -75,7 +75,7 @@ End;
 
 procedure TForm1.ChangerMessage(A: string);
 begin
-  //~ writeln('Message: ', A);
+  writeln('Message: ', A);
   Edit6.Text:=A;
 end;
   
