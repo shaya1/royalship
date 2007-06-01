@@ -22,6 +22,8 @@ Public
   Constructor Create();
   Destructor Destroy();
   Procedure AjouterJoueur(aj1,aj2:Ijoueur);
+  
+  Procedure Tour();override;
 end;
 
 implementation
@@ -64,6 +66,8 @@ Procedure Carbitre.Tour();
     Repeat
       A:=J1.jouer;
     Until P2[A[0],A[1]]>=0;
+    
+    writeln('en ', A[0], ',', A[1]);
 
     If P2[A[0],A[1]]=0 then
       J1.Rate
@@ -78,7 +82,11 @@ Procedure Carbitre.Tour();
     end;
   end;
 Begin
+  writeln('');
+  write('Humain joue ');
   Coup(fJh,fJo,PlateauO);
+  writeln('');
+  writeln('Ordinateur joue ');
   Coup(fJo,fJh,PlateauH);
 end;
 

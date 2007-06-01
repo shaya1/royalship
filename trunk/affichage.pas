@@ -62,15 +62,17 @@ procedure TForm1.OnMouseDown(Sender: TOBject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Stringgrid2.MousetoCell(X,Y,LastCase[0],LastCase[1]);
-  GrilleHumaintouche(LastCase);
+  Arbitre.Tour;
 end;
 
 Function Tform1.DernierecaseCliquee:Tcase;
 Begin
+  DernierecaseCliquee := LastCase;
 End;
 
 procedure TForm1.ChangerMessage(A: string);
 begin
+  writeln('Message: ', A);
   Edit6.Text:=A;
 end;
   
@@ -84,16 +86,19 @@ End;
 
 procedure TForm1.GrilleHumainTouche(C: TCase);
 Begin
+  writeln('GrilleHumainLoupe: ', C[0], ' ', C[1]);
   ColorieCase(C,clred,Stringgrid1);
 end;
 
 procedure TForm1.GrilleOrdinateurTouche(C: TCase);
 Begin
+  writeln('GrilleOrdinateurTouche: ', C[0], ' ', C[1]);
   ColorieCase(C,clred,Stringgrid2);
 End;
 
 procedure TForm1.GrilleOrdinateurLoupe(C: Tcase);
 Begin
+  writeln('GrilleOrdinateurLoupe: ', C[0], ' ', C[1]);
   ColorieCase(C,clblue,Stringgrid2);
 end;
 
