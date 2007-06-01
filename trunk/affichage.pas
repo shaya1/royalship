@@ -78,10 +78,18 @@ end;
   
 Procedure Tform1.coloriecase(C:Tcase;couleur:Tcolor;StringgridA:Tstringgrid);
 Var Casegrid:TRect;
+    sCouleur: string;
 begin
-  Casegrid:=StringGridA.CellRect(C[0],C[1]);
-  StringGridA.canvas.brush.color:=couleur;
-  StringGridA.canvas.FillRect(Casegrid);
+  //~ Casegrid:=StringGridA.CellRect(C[0],C[1]);
+  //~ StringGridA.canvas.brush.color:=couleur;
+  //~ StringGridA.canvas.FillRect(Casegrid);
+  sCouleur := 'inconnue';
+  if couleur = clred then
+    sCouleur := 'rouge';
+  if couleur = clblue then
+    sCouleur := 'bleu';
+  
+  StringGridA.Cells[C[0],C[1]] := sCouleur;
 End;
 
 procedure TForm1.GrilleHumainTouche(C: TCase);
