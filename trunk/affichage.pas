@@ -55,14 +55,14 @@ implementation
 { TForm1 }
 Procedure Tform1.SetArbitre(AArbitre:IArbitre);
 Begin
-Arbitre:=AArbitre;
+  Arbitre:=AArbitre;
 End;
 
 procedure TForm1.OnMouseDown(Sender: TOBject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-Stringgrid2.MousetoCell(X,Y,LastCase[0],LastCase[1]);
-GrilleHumaintouche(LastCase);
+  Stringgrid2.MousetoCell(X,Y,LastCase[0],LastCase[1]);
+  GrilleHumaintouche(LastCase);
 end;
 
 Function Tform1.DernierecaseCliquee:Tcase;
@@ -70,35 +70,32 @@ Begin
 End;
 
 procedure TForm1.ChangerMessage(A: string);
-  begin
+begin
   Edit6.Text:=A;
-  end;
+end;
   
 Procedure Tform1.coloriecase(C:Tcase;couleur:Tcolor;StringgridA:Tstringgrid);
-  Var Casegrid:TRect;
-  begin
+Var Casegrid:TRect;
+begin
   Casegrid:=StringGridA.CellRect(C[0],C[1]);
   StringGridA.canvas.brush.color:=couleur;
   StringGridA.canvas.FillRect(Casegrid);
-  End;
+End;
 
 procedure TForm1.GrilleHumainTouche(C: TCase);
-
-  Begin
+Begin
   ColorieCase(C,clred,Stringgrid1);
-  end;
+end;
 
 procedure TForm1.GrilleOrdinateurTouche(C: TCase);
-
-  Begin
+Begin
   ColorieCase(C,clred,Stringgrid2);
-  End;
+End;
 
 procedure TForm1.GrilleOrdinateurLoupe(C: Tcase);
-
-  Begin
+Begin
   ColorieCase(C,clblue,Stringgrid2);
-  end;
+end;
 
 initialization
   {$I affichage.lrs}
