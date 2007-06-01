@@ -1,4 +1,4 @@
-ï»¿unit UJoueurHumain;
+unit UJoueurHumain;
 
 interface 
 
@@ -19,7 +19,10 @@ type CJoueurHumain = class(IJoueur)
 	// Résultat du coup de l'adversaire
 	procedure ToucheJoueur(coup: TCase); override; // On a été touché
 	procedure CouleJoueur(coup: TCase); override; // On a été coulé
-
+	
+	// Autre
+	procedure Gagne; override;
+	procedure Perd; override;
 	procedure Invalide; override;
 
 private
@@ -74,6 +77,17 @@ end;
 
 Destructor CjoueurHumain.Destroy;
 Begin
+	
 End;
+
+procedure CJoueurHumain.Gagne;
+begin
+	fAff.ChangerMessage('Gagne \o/');
+end;
+
+procedure CJoueurHumain.Perd;
+begin
+	fAff.ChangerMessage('Perdu...');
+end;
 
 end.
