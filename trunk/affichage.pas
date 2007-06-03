@@ -13,8 +13,6 @@ uses
 var arbitre:Iarbitre;
     LastCase:Tcase;
     LastDirection:Boolean;
-    CodeBateau:Integer;
-    
 type
 
   { TForm1 }
@@ -70,46 +68,21 @@ End;
 //Procedure de placement des bateaux quand on clic sur Stringgrid1 et quand Arbitre.Miseenplaceeff=False
 procedure TForm1.StringGrid1MouseDown(Sender: TOBject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
-  
-  Procedure MiseajourCodeBateau(Var CodeBateau:integer);
-  Begin
-    Arbitre.MiseenPlace(CodeBateau);
-    CodeBateau:=CodeBateau-1;
-  end;
-
 begin
-(*--------------------------Codes Bateaux----------------------------
-2 Frégate
-3 Sous-Marin
-4 contre-Torpilleurs
-5 Torpilleur
-6 Porte avions
-----------------------------Codes directions-------------------------
-TRUE Horizontal
-FALSE Vertical*)
-
   If Button=mbright then
     Lastdirection:=True
   else
     Lastdirection:=False;
   
-  If Arbitre.MiseEnPlaceeff=False then
+  If Arbitre.JeuEnCours=False then
   begin
     Stringgrid1.MousetoCell(X,Y,LastCase[0],Lastcase[1]);
     LastCase[0]:=LastCase[0]-1;
     LastCase[1]:=LastCase[1]-1;
+  
+    Arbitre.MiseEnPlace;
     
-    Case codebateau of
-      2 :MiseajourCodeBateau(CodeBateau);
-      3 :MiseajourCodeBateau(CodeBateau);
-      4 :MiseajourCodeBateau(CodeBateau);
-      5 :MiseajourCodeBateau(CodeBateau);
-      6 :MiseajourCodeBateau(CodeBateau);
-    end;
-    
-    If CodeBateau=1 then
-    Begin
-      Arbitre.MiseEnPlaceeff:=True;
+    If Arbitre.JeuEnCours then begin
       ChangerMessage('Navires en Position !!! Parés pour le combat !!');
     End;
   end;
@@ -118,14 +91,13 @@ end;
 procedure TForm1.StringGrid2MouseDown(Sender: TOBject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-  If Arbitre.MiseEnPlaceeff=True then
-  Begin
+  If Arbitre.JeuEnCours=True then begin
     Stringgrid2.MousetoCell(X,Y,LastCase[0],LastCase[1]);
     LastCase[0] := LastCase[0] - 1;
     LastCase[1] := LastCase[1] - 1;
     if (0 <= LastCase[0]) and (0 <= LastCase[1]) and (9 >= LastCase[0]) and (9 >= LastCase[1]) then
       Arbitre.Tour;
-end;
+  end;
 end;
 
 //Renvoi de la dernière case et le dernier bouton cliqués dont JoueurHumain a besoin
@@ -177,6 +149,5 @@ end;
 
 initialization
   {$I affichage.lrs}
-CodeBateau:=6;
 end.
 
