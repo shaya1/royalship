@@ -11,7 +11,9 @@ uses Classes,UIarbitre, UJoueur, SysUtils;
 Type Tplateau=array [0..9,0..9] of Integer;
 
 Type Carbitre=Class (Iarbitre)
-
+  EnJeu:boolean;
+  ProchainBateau: integer;
+  
   fJH:Ijoueur;
   fJo:Ijoueur;
 
@@ -24,14 +26,17 @@ Public
   procedure AjouterJoueur(aj1,aj2:Ijoueur);
 
   procedure Tour();override;
-  procedure MiseEnPlace(Bateau:integer);override;
+  procedure MiseEnPlace;override;
+  
+  function JeuEnCours: boolean; override;
 end;
 
 implementation
 
 Constructor Carbitre.Create();
 begin
-MiseenPlaceEff:=False;
+  ProchainBateau := 6;
+  EnJeu := False;
 end;
 
 procedure Carbitre.AjouterJoueur(aj1,aj2:Ijoueur);
@@ -56,12 +61,13 @@ Destructor Carbitre.Destroy();
 begin
 end;
 
-procedure Carbitre.MiseEnPlace(Bateau:integer);
+procedure Carbitre.MiseEnPlace;
 (*--------------------------Codes Bateaux----------------------------
 2 Frégate
-3 Sous-Marin et contre-Torpilleur
-4 Torpilleur
-5 Porte avions
+3 Sous-Marin
+4 contre-Torpilleurs
+5 Torpilleur
+6 Porte avions
 ----------------------------Codes directions-------------------------
 TRUE Horizontal
 FALSE Vertical
@@ -147,10 +153,15 @@ FALSE sens décroissant*)
 
 Var Possible,SensPossible:boolean;C:Tcase;Direction:Boolean;
 begin
+  Bateau := ProchainBateau;
   C:=fjH.faff.DerniereCaseCliquee;
   Direction:=fjH.faff.DerniereDirection;
   VerifCollision(Bateau,PlateauH,C,Direction,Possible,SensPossible);
   MiseajourPlateau(fjH,PlateauH,Bateau,C,Direction,Possible,SensPossible);
+  ProchainBateau := ProchainBateau - 1;
+  
+  if ProchainBateau = 1 then
+    EnJeu := True;
 end;
 
 procedure Carbitre.Tour();
@@ -214,6 +225,11 @@ begin
     until Coup(fJo,fJh,PlateauH);
     //~ ////writeln('Plateau humain, selon IA (apres coup):');
     //~ fJo.debug;
+end;
+  
+function Carbitre.JeuEnCours:boolean;
+begin
+  JeuEnCours := EnJeu;
 end;
 
 initialization
