@@ -69,26 +69,26 @@ procedure Carbitre.MiseEnPlace;
 5 Torpilleur
 6 Porte avions
 ----------------------------Codes directions-------------------------
-TRUE Horizontal
-FALSE Vertical
+1 Horizontal
+0 Vertical
 ----------------------------Codes sens-------------------------------
-TRUE sens croissant
-FALSE sens décroissant*)
+ 1 sens croissant
+-1 sens décroissant *)
 
-  procedure VerifCollision(Bateau:integer;Plateau1:Tplateau;C:Tcase;Direction:Boolean; Var Possible:Boolean;Var SensPossible:Boolean);
+  procedure VerifCollision(Bateau:integer; Plateau1:Tplateau; C:Tcase; Direction:integer; Var Possible:Boolean; Var SensPossible:integer);
   Var i:integer;
   begin
-    SensPossible:=True;
+    SensPossible:=1;
     i:=0;
-    if Direction=True then
+    if Direction=1 then
       Repeat
         if C[1]+Bateau<=10 then begin
           Possible:=(Plateau1[C[0],C[1]+i]=0);
-          SensPossible:=True;
+          SensPossible:=1;
         end
         else begin
           Possible:=(Plateau1[C[0],C[1]-i]=0);
-          SensPossible:=False;
+          SensPossible:=-1;
         end;
         i:=i+1;
       until (Possible=False) or (i=Bateau)
@@ -96,17 +96,17 @@ FALSE sens décroissant*)
       Repeat
         if C[0]+Bateau<=10 then begin
           Possible:=(Plateau1[C[0]+i,C[1]]=0);
-          SensPossible:=True;
+          SensPossible:=1;
         end
         else begin
           Possible:=(Plateau1[C[0]-i,C[1]]=0);
-          SensPossible:=False;
+          SensPossible:=-1;
         end;
         i:=i+1;
       until  (i=Bateau) or (Possible=False);
   end;
   
-  procedure MiseajourPlateau(J1:Ijoueur;Var Plateau1:Tplateau;Bateau:integer;C:Tcase;Direction,Possible,SensPossible:boolean);
+  procedure MiseajourPlateau(J1:Ijoueur;Var Plateau1:Tplateau; Bateau:integer; C:Tcase; Direction:integer; Possible:boolean; SensPossible:integer);
   Var i:integer;Caux:Tcase;
   begin
     Caux[0]:=C[0];
@@ -114,8 +114,8 @@ FALSE sens décroissant*)
     if Possible=False then
       J1.faff.ChangerMessage('La position de votre navire est invalide. Choisissez un autre endroit')
     else begin
-      if Direction=True then
-        if SensPossible=True then begin
+      if Direction=1 then
+        if SensPossible=1 then begin
           for i:=0 to Bateau-1 do begin
             Plateau1[Caux[0],Caux[1]]:=Bateau;
             J1.PlaceBateau(Caux);
@@ -132,7 +132,8 @@ FALSE sens décroissant*)
           end;
           J1.faff.ChangerMessage('Nous sommes prêts ici !!');
         end
-        else if SensPossible=True then begin
+      else
+        if SensPossible=1 then begin
           for i:=0 to Bateau-1 do begin
             Plateau1[Caux[0],Caux[1]]:=Bateau;
             J1.PlaceBateau(Caux);
@@ -151,7 +152,7 @@ FALSE sens décroissant*)
     end;
   end;
 
-Var Possible,SensPossible:boolean;C:Tcase;Direction:Boolean;
+Var Possible:boolean;C:Tcase;SensPossible,Direction:integer;
 begin
   fjH.PlaceBateau(ProchainBateau, C, Direction);
   VerifCollision(ProchainBateau,PlateauH,C,Direction,Possible,SensPossible);
