@@ -59,7 +59,7 @@ var c, c2: TCase;
     di, dj: integer;
 	depile: boolean;
 begin
-	//~ writeln('Plateau humain, selon IA (avant coup)');
+	//~ ////writeln('Plateau humain, selon IA (avant coup)');
 	//~ debug;
 	if fSize = 0 then begin // Tous les coups réussis ont ete explorés, on joue aléatoirement
 		repeat
@@ -96,7 +96,7 @@ end;
 
 procedure CJoueurIA.ToucheAdversaire;
 begin
-	writeln('IA: AdvTouche (', fDernierCoup[0], ',', fDernierCoup[1], ')');
+	////writeln('IA: AdvTouche (', fDernierCoup[0], ',', fDernierCoup[1], ')');
 	fPlateau[fDernierCoup[0]+1,fDernierCoup[1]+1]:=1;
 	fPile[fSize] := fDernierCoup;
 	fSize := fSize + 1;
@@ -104,7 +104,7 @@ end;
 
 procedure CJoueurIA.CouleAdversaire;
 begin
-	writeln('IA: AdvCoule (', fDernierCoup[0], ',', fDernierCoup[1], ')');
+	////writeln('IA: AdvCoule (', fDernierCoup[0], ',', fDernierCoup[1], ')');
 	fPlateau[fDernierCoup[0]+1,fDernierCoup[1]+1]:=1;
 	fPile[fSize] := fDernierCoup;
 	fSize := fSize + 1;
@@ -112,7 +112,7 @@ end;
 
 procedure CJoueurIA.Rate;
 begin
-	writeln('IA: Rate (', fDernierCoup[0], ',', fDernierCoup[1], ')');
+	////writeln('IA: Rate (', fDernierCoup[0], ',', fDernierCoup[1], ')');
 	fPlateau[fDernierCoup[0]+1,fDernierCoup[1]+1]:=2;
 end;
 
@@ -146,16 +146,16 @@ var i, j: integer;
 begin
 	//~ for i := 1 to 10 do begin
 		//~ for j := 1 to 10 do begin
-			//~ write(fPlateau[j,i], ' ');
+			//~ //write(fPlateau[j,i], ' ');
 		//~ end;
-		//~ writeln('');
+		//~ ////writeln('');
 	//~ end;
 	
-	write('Pile (', fSize, '): ');
+	//write('Pile (', fSize, '): ');
 	for i := 0 to fSize - 1 do begin
-		write('(', fPile[i][0],',', fPile[i][1],') ')
+		//write('(', fPile[i][0],',', fPile[i][1],') ')
 	end;
-	writeln('');
+	////writeln('');
 end;
 
 end.

@@ -21,6 +21,7 @@ type CJoueurHumain = class(IJoueur)
 	procedure CouleJoueur(coup: TCase); override; // On a été coulé
 	
 	// Autre
+        Procedure PlaceBateau(C:TCase); override;
 	procedure Gagne; override;
 	procedure Perd; override;
 	procedure Invalide; override;
@@ -81,14 +82,19 @@ Begin
 	
 End;
 
+Procedure CJoueurHumain.PlaceBateau(C:Tcase);
+Begin
+faff.PositionBateau(C);
+end;
+
 procedure CJoueurHumain.Gagne;
 begin
-	fAff.ChangerMessage('Gagne \o/');
+	fAff.ChangerMessage('ILS ONT TOUS SOMBRES DANS LES ABYSSES !!');
 end;
 
 procedure CJoueurHumain.Perd;
 begin
-	fAff.ChangerMessage('Perdu...');
+	fAff.ChangerMessage('NOTRE DERNIER NAVIRE PREND L''EAU DE TOUTE PARTS !!!!');
 end;
 
 end.
