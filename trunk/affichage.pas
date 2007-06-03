@@ -88,53 +88,47 @@ begin
 TRUE Horizontal
 FALSE Vertical*)
 
-  If Arbitre.MiseEnPlaceeff=False
-  then
-  begin
-    If Button=mbright
-    then
+  If Button=mbright then
     Lastdirection:=True
-    else
+  else
     Lastdirection:=False;
+  
+  If Arbitre.MiseEnPlaceeff=False then
+  begin
     Stringgrid1.MousetoCell(X,Y,LastCase[0],Lastcase[1]);
     LastCase[0]:=LastCase[0]-1;
     LastCase[1]:=LastCase[1]-1;
+    
     Case codebateau of
-    2 :MiseajourCodeBateau(CodeBateau);
-    3 :MiseajourCodeBateau(CodeBateau);
-    4 :MiseajourCodeBateau(CodeBateau);
-    5 :MiseajourCodeBateau(CodeBateau);
-    6 :MiseajourCodeBateau(CodeBateau);
+      2 :MiseajourCodeBateau(CodeBateau);
+      3 :MiseajourCodeBateau(CodeBateau);
+      4 :MiseajourCodeBateau(CodeBateau);
+      5 :MiseajourCodeBateau(CodeBateau);
+      6 :MiseajourCodeBateau(CodeBateau);
     end;
-    If CodeBateau=1
-    then
-      Begin
+    
+    If CodeBateau=1 then
+    Begin
       Arbitre.MiseEnPlaceeff:=True;
       ChangerMessage('Navires en Position !!! Parés pour le combat !!');
-      End;
+    End;
   end;
-
 end;
 
 procedure TForm1.StringGrid2MouseDown(Sender: TOBject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-If Arbitre.MiseEnPlaceeff=True
-then
-Begin
-Stringgrid2.MousetoCell(X,Y,LastCase[0],LastCase[1]);
-  LastCase[0] := LastCase[0] - 1;
-  LastCase[1] := LastCase[1] - 1;
-  if (0 <= LastCase[0]) and (0 <= LastCase[1]) and (9 >= LastCase[0]) and (9 >= LastCase[1]) then
-    Arbitre.Tour;
+  If Arbitre.MiseEnPlaceeff=True then
+  Begin
+    Stringgrid2.MousetoCell(X,Y,LastCase[0],LastCase[1]);
+    LastCase[0] := LastCase[0] - 1;
+    LastCase[1] := LastCase[1] - 1;
+    if (0 <= LastCase[0]) and (0 <= LastCase[1]) and (9 >= LastCase[0]) and (9 >= LastCase[1]) then
+      Arbitre.Tour;
 end;
 end;
 
-
-
-
-
-//Renvoi de la dernière case et le dernier bouton cliqués dont Joueur et Arbitre ont besoin
+//Renvoi de la dernière case et le dernier bouton cliqués dont JoueurHumain a besoin
 Function Tform1.DernierecaseCliquee:Tcase;
 Begin
   DernierecaseCliquee := LastCase;

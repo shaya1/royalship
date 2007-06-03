@@ -21,25 +21,25 @@ Type Carbitre=Class (Iarbitre)
 Public
   Constructor Create();
   Destructor Destroy();
-  Procedure AjouterJoueur(aj1,aj2:Ijoueur);
+  procedure AjouterJoueur(aj1,aj2:Ijoueur);
 
-  Procedure Tour();override;
-  Procedure MiseEnPlace(Bateau:integer);override;
+  procedure Tour();override;
+  procedure MiseEnPlace(Bateau:integer);override;
 end;
 
 implementation
 
 Constructor Carbitre.Create();
-Begin
+begin
 MiseenPlaceEff:=False;
-End;
+end;
 
-Procedure Carbitre.AjouterJoueur(aj1,aj2:Ijoueur);
+procedure Carbitre.AjouterJoueur(aj1,aj2:Ijoueur);
 Var i,j : integer;
-Begin
-  For i:=0 to 9 do
-    For j:=0 to 9 do
-      Begin
+begin
+  for i:=0 to 9 do
+    for j:=0 to 9 do
+      begin
         PlateauH[i,j]:=0;
         PlateauO[i,j]:=0;
       end;
@@ -50,13 +50,13 @@ Begin
   
   fJH:=aj1;
   fJO:=aj2;
-End;
+end;
 
 Destructor Carbitre.Destroy();
-Begin
-End;
+begin
+end;
 
-Procedure Carbitre.MiseEnPlace(Bateau:integer);
+procedure Carbitre.MiseEnPlace(Bateau:integer);
 (*--------------------------Codes Bateaux----------------------------
 2 Frégate
 3 Sous-Marin et contre-Torpilleur
@@ -69,142 +69,122 @@ FALSE Vertical
 TRUE sens croissant
 FALSE sens décroissant*)
 
-  Procedure VerifCollision(Bateau:integer;Plateau1:Tplateau;C:Tcase;Direction:Boolean; Var Possible:Boolean;Var SensPossible:Boolean);
+  procedure VerifCollision(Bateau:integer;Plateau1:Tplateau;C:Tcase;Direction:Boolean; Var Possible:Boolean;Var SensPossible:Boolean);
   Var i:integer;
-  Begin
-  SensPossible:=True;
-  i:=0;
-    If Direction=True
-    then
+  begin
+    SensPossible:=True;
+    i:=0;
+    if Direction=True then
       Repeat
-        if C[1]+Bateau<=10
-        then
-          Begin
+        if C[1]+Bateau<=10 then begin
           Possible:=(Plateau1[C[0],C[1]+i]=0);
           SensPossible:=True;
-          end
-        else
-            Begin
-            Possible:=(Plateau1[C[0],C[1]-i]=0);
-            SensPossible:=False;
-            end;
+        end
+        else begin
+          Possible:=(Plateau1[C[0],C[1]-i]=0);
+          SensPossible:=False;
+        end;
         i:=i+1;
-      Until (Possible=False) or (i=Bateau)
-    Else
+      until (Possible=False) or (i=Bateau)
+    else
       Repeat
-        if C[0]+Bateau<=10
-        then
-          Begin
+        if C[0]+Bateau<=10 then begin
           Possible:=(Plateau1[C[0]+i,C[1]]=0);
           SensPossible:=True;
-          end
-        else
-            Begin
-            Possible:=(Plateau1[C[0]-i,C[1]]=0);
-            SensPossible:=False;
-            end;
+        end
+        else begin
+          Possible:=(Plateau1[C[0]-i,C[1]]=0);
+          SensPossible:=False;
+        end;
         i:=i+1;
-      Until  (i=Bateau) or (Possible=False);
-    end;
-    
-    Procedure MiseajourPlateau(J1:Ijoueur;Var Plateau1:Tplateau;Bateau:integer;C:Tcase;Direction,Possible,SensPossible:boolean);
-    Var i:integer;Caux:Tcase;
-    Begin
+      until  (i=Bateau) or (Possible=False);
+  end;
+  
+  procedure MiseajourPlateau(J1:Ijoueur;Var Plateau1:Tplateau;Bateau:integer;C:Tcase;Direction,Possible,SensPossible:boolean);
+  Var i:integer;Caux:Tcase;
+  begin
     Caux[0]:=C[0];
     Caux[1]:=C[1];
-    If Possible=False
-    then J1.faff.ChangerMessage('La position de votre navire est invalide. Choisissez un autre endroit')
-    else
-      Begin
-      If Direction=True
-        then
-          If SensPossible=True
-          then
-            Begin
-            For i:=0 to Bateau-1 do
-            Begin
+    if Possible=False then
+      J1.faff.ChangerMessage('La position de votre navire est invalide. Choisissez un autre endroit')
+    else begin
+      if Direction=True then
+        if SensPossible=True then begin
+          for i:=0 to Bateau-1 do begin
             Plateau1[Caux[0],Caux[1]]:=Bateau;
             J1.PlaceBateau(Caux);
             Caux[1]:=Caux[1]+1;
-            End;
-            J1.faff.ChangerMessage('Navire en position !!');
-            end
-          else
-            Begin
-            For i:=0 to Bateau-1 do
-            Begin
-           Plateau1[Caux[0],Caux[1]]:=Bateau;
+          end;
+          
+          J1.faff.ChangerMessage('Navire en position !!');
+        end
+        else begin
+          for i:=0 to Bateau-1 do begin
+            Plateau1[Caux[0],Caux[1]]:=Bateau;
             J1.PlaceBateau(Caux);
             Caux[1]:=Caux[1]-1;
-            End;
-            J1.faff.ChangerMessage('Nous sommes prêts ici !!');
-            end
-        else
-          If SensPossible=True
-          then
-            Begin
-            For i:=0 to Bateau-1 do
-            Begin
+          end;
+          J1.faff.ChangerMessage('Nous sommes prêts ici !!');
+        end
+        else if SensPossible=True then begin
+          for i:=0 to Bateau-1 do begin
             Plateau1[Caux[0],Caux[1]]:=Bateau;
             J1.PlaceBateau(Caux);
             Caux[0]:=Caux[0]+1;
-            End;
-            J1.faff.ChangerMessage('Paré à faire feu !!');
-            End
-          else
-            Begin
-            For i:=0 to Bateau-1 do
-            Begin
+          end;
+          J1.faff.ChangerMessage('Paré à faire feu !!');
+        end
+        else begin
+          for i:=0 to Bateau-1 do begin
             Plateau1[Caux[0],Caux[1]]:=Bateau;
             J1.PlaceBateau(Caux);
             Caux[0]:=Caux[0]-1;
-            End;
-            J1.faff.ChangerMessage('A vos Ordres !!');
-            end
-       End;
-     end;
+          end;
+          J1.faff.ChangerMessage('A vos Ordres !!');
+        end
+    end;
+  end;
 
 Var Possible,SensPossible:boolean;C:Tcase;Direction:Boolean;
-Begin
-C:=fjH.faff.DerniereCaseCliquee;
-Direction:=fjH.faff.DerniereDirection;
-VerifCollision(Bateau,PlateauH,C,Direction,Possible,SensPossible);
-MiseajourPlateau(fjH,PlateauH,Bateau,C,Direction,Possible,SensPossible);
-End;
+begin
+  C:=fjH.faff.DerniereCaseCliquee;
+  Direction:=fjH.faff.DerniereDirection;
+  VerifCollision(Bateau,PlateauH,C,Direction,Possible,SensPossible);
+  MiseajourPlateau(fjH,PlateauH,Bateau,C,Direction,Possible,SensPossible);
+end;
 
-Procedure Carbitre.Tour();
-
+procedure Carbitre.Tour();
   function Coup(J1,J2:Ijoueur;var P2:TPlateau): boolean;
-
-    Function VerifNaufrage(Bat:Integer;var P2:Tplateau):boolean;
+    function VerifNaufrage(Bat:Integer;var P2:Tplateau):boolean;
     Var i,j:integer;
-    Begin
+    begin
       VerifNaufrage:=True;
-      For i:=0 to 9 do
-        For j:=0 to 9 do
-          If P2[i,j]=Bat then
+      for i:=0 to 9 do
+        for j:=0 to 9 do
+          if P2[i,j]=Bat then
             VerifNaufrage:=False
-    End;
+    end;
 
-  Var A:TCase;
+  var A:TCase;
       C: boolean;
       i, j: integer;
       G: boolean;
-  Begin
+  begin
 
     A:=J1.jouer;
     Coup := P2[A[0],A[1]]>=0;
     C := P2[A[0],A[1]]>=0;
     
     if C then begin
-      If P2[A[0],A[1]]=0 then
+      if P2[A[0],A[1]]=0 then
         J1.Rate
       else begin
         P2[A[0],A[1]] := P2[A[0],A[1]] * -1;
-        If VerifNaufrage(P2[A[0],A[1]] * -1,P2)=False then begin
+        if VerifNaufrage(P2[A[0],A[1]] * -1,P2)=False then begin
           J1.ToucheAdversaire;
           J2.ToucheJoueur(A);
-        end else begin
+        end
+        else begin
           J1.Couleadversaire;
           J2.CouleJoueur(A);
           
@@ -224,7 +204,7 @@ Procedure Carbitre.Tour();
     end else
       J1.invalide;
   end;
-Begin
+begin
   if Coup(fJh,fJo,PlateauO) then
     repeat
       ////writeln('');
