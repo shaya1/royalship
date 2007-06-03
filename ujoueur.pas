@@ -18,16 +18,21 @@ type IJoueur = class
 	procedure ToucheAdversaire; virtual; abstract; // Adversaire touché
 	procedure CouleAdversaire; virtual; abstract; // Adversaire coulé
 	procedure Rate; virtual; abstract; // Coup à l'eau
+	procedure Invalide; virtual;abstract;
 	
 	// Résultat du coup de l'adversaire
 	procedure ToucheJoueur(coup: TCase); virtual; abstract; // On a été touché
 	procedure CouleJoueur(coup: TCase); virtual; abstract; // On a été coulé
-
-    Procedure PlaceBateau(C:Tcase); virtual;abstract;
+	
+	// Fin de jeu
 	procedure Gagne; virtual;abstract;
 	procedure Perd; virtual;abstract;
-	procedure Invalide; virtual;abstract;
 
+	// Début de partie
+	Procedure PlaceBateau(tailleBateau: integer; var C: TCase, var direction: boolean); virtual; abstract;
+    Procedure PlacementOK; virtual;abstract;
+    Procedure PlacementInvalide; virtual;abstract;
+	
 	procedure debug; virtual;
 end;
 
