@@ -12,7 +12,7 @@ uses
 
 var arbitre:Iarbitre;
     LastCase:Tcase;
-    LastDirection:Boolean;
+    LastDirection:integer;
 type
 
   { TForm1 }
@@ -43,7 +43,7 @@ type
     Procedure GrilleOrdinateurLoupe(C:Tcase);
     Procedure coloriecase(C:Tcase;couleur:Tcolor;Var StringgridA:Tstringgrid);
     Function DernierecaseCliquee:Tcase;
-    Function Dernieredirection:boolean;
+    Function Dernieredirection:integer;
     procedure StringGrid1MouseDown(Sender: TOBject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure StringGrid2MouseDown(Sender: TOBject; Button: TMouseButton;
@@ -70,9 +70,9 @@ procedure TForm1.StringGrid1MouseDown(Sender: TOBject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   If Button=mbright then
-    Lastdirection:=True
+    Lastdirection:=1
   else
-    Lastdirection:=False;
+    Lastdirection:=0;
   
   If Arbitre.JeuEnCours=False then
   begin
@@ -106,9 +106,9 @@ Begin
   DernierecaseCliquee := LastCase;
 End;
 
-Function Tform1.Dernieredirection:boolean;
+Function Tform1.Dernieredirection:integer;
 Begin
-Dernieredirection:= LastDirection;
+  Dernieredirection:= LastDirection;
 End;
 
 //Gestion de la boîte à message
