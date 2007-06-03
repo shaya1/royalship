@@ -153,11 +153,9 @@ FALSE sens décroissant*)
 
 Var Possible,SensPossible:boolean;C:Tcase;Direction:Boolean;
 begin
-  Bateau := ProchainBateau;
-  C:=fjH.faff.DerniereCaseCliquee;
-  Direction:=fjH.faff.DerniereDirection;
-  VerifCollision(Bateau,PlateauH,C,Direction,Possible,SensPossible);
-  MiseajourPlateau(fjH,PlateauH,Bateau,C,Direction,Possible,SensPossible);
+  fjH.PlaceBateau(ProchainBateau, C, Direction);
+  VerifCollision(ProchainBateau,PlateauH,C,Direction,Possible,SensPossible);
+  MiseajourPlateau(fjH,PlateauH,ProchainBateau,C,Direction,Possible,SensPossible);
   ProchainBateau := ProchainBateau - 1;
   
   if ProchainBateau = 1 then
