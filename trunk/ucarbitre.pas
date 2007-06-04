@@ -95,20 +95,20 @@ procedure Carbitre.MiseEnPlace;
   end;
   
   procedure MiseajourPlateau(J1:Ijoueur;Var Plateau1:Tplateau; Bateau:integer; C:Tcase; Direction:integer; Possible:boolean; SensPossible:integer);
-  Var i:integer;Caux:Tcase;
+  Var i:integer; Caux:Tcase; Cases: array[0..5] of TCase;
   begin
     Caux[0]:=C[0];
     Caux[1]:=C[1];
     if Possible=False then
-      J1.faff.ChangerMessage('La position de votre navire est invalide. Choisissez un autre endroit')
+      J1.PlacementInvalide
     else begin
       for i:=0 to Bateau-1 do begin
         Plateau1[Caux[0],Caux[1]]:=Bateau;
-        J1.PlacementOK(Caux);
+        Cases[i] := Caux;
         Caux[Direction]:=Caux[Direction]+SensPossible;
       end;
       
-      J1.faff.ChangerMessage('A vos Ordres !!');
+      J1.PlacementOK(Bateau, Cases);
     end;
   end;
 
@@ -177,12 +177,12 @@ procedure Carbitre.Tour();
 begin
   if Coup(fJh,fJo,PlateauO) then
     repeat
-      ////writeln('');
-      ////writeln('Ordinateur joue ');
-      //~ ////writeln('Plateau humain, selon arbitre:');
+      writeln('');
+      writeln('Ordinateur joue ');
+      //~ writeln('Plateau humain, selon arbitre:');
       //~ debug;
     until Coup(fJo,fJh,PlateauH);
-    //~ ////writeln('Plateau humain, selon IA (apres coup):');
+    //~ writeln('Plateau humain, selon IA (apres coup):');
     //~ fJo.debug;
 end;
   
