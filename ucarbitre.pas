@@ -118,7 +118,7 @@ procedure Carbitre.MiseEnPlace;
         if SensPossible=1 then begin
           for i:=0 to Bateau-1 do begin
             Plateau1[Caux[0],Caux[1]]:=Bateau;
-            J1.PlaceBateau(Caux);
+            J1.PlacementOK(Caux);
             Caux[1]:=Caux[1]+1;
           end;
           

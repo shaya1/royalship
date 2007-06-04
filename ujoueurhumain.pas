@@ -22,9 +22,9 @@ type CJoueurHumain = class(IJoueur)
 	procedure CouleJoueur(coup: TCase); override; // On a été coulé
 	
 	// Début partie
-	Procedure PlaceBateau(tailleBateau: integer; var C: TCase, var direction: integer); override;
-    Procedure PlacementOK; override;
-    Procedure PlacementInvalide;  override;
+	Procedure PlaceBateau(tailleBateau: integer; var C: TCase; var direction: integer); override;
+    Procedure PlacementOK(C: TCase); override;
+    Procedure PlacementInvalide(C: TCase);  override;
 
 	// Fin partie
 	procedure Gagne; override;
@@ -87,17 +87,17 @@ Begin
 	
 End;
 
-Procedure CJoueurHumain.PlacementOK;
+Procedure CJoueurHumain.PlacementOK(C: TCase);
 Begin
-	faff.PositionBateau(fDernierPlacement);
+	faff.PositionBateau(C);
 end;
 
-Procedure CJoueurHumain.PlacementInvalide;
+Procedure CJoueurHumain.PlacementInvalide(C: TCase);
 Begin
 	faff.ChangerMessage('La position de votre navire est invalide. Choisissez un autre endroit')
 end;
 
-Procedure CJoueurHumain.PlaceBateau(tailleBateau: integer; var C: TCase, var direction: integer);
+Procedure CJoueurHumain.PlaceBateau(tailleBateau: integer; var C: TCase; var direction: integer);
 begin
 	C := fAff.DerniereCaseCliquee;
 	direction := fAff.DerniereDirection;
