@@ -11,8 +11,8 @@ type CJoueurIA = class(IJoueur)
 
 	function Jouer: TCase; override;
 	
-	procedure ToucheAdversaire; override;
-	procedure CouleAdversaire; override;
+	procedure ToucheAdversaire(bateau: integer); override;
+	procedure CouleAdversaire(bateau: integer); override;
 	procedure Rate; override;
 	
 	procedure ToucheJoueur(coup: TCase); override;
@@ -103,7 +103,7 @@ begin
 	end
 end;
 
-procedure CJoueurIA.ToucheAdversaire;
+procedure CJoueurIA.ToucheAdversaire(bateau: integer);
 begin
 	////writeln('IA: AdvTouche (', fDernierCoup[0], ',', fDernierCoup[1], ')');
 	fPlateau[fDernierCoup[0]+1,fDernierCoup[1]+1]:=1;
@@ -111,7 +111,7 @@ begin
 	fSize := fSize + 1;
 end;
 
-procedure CJoueurIA.CouleAdversaire;
+procedure CJoueurIA.CouleAdversaire(bateau: integer);
 begin
 	////writeln('IA: AdvCoule (', fDernierCoup[0], ',', fDernierCoup[1], ')');
 	fPlateau[fDernierCoup[0]+1,fDernierCoup[1]+1]:=1;

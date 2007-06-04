@@ -12,8 +12,8 @@ type CJoueurHumain = class(IJoueur)
 	function Jouer: TCase; override;
 	
 	// Résultat de notre coup précédent
-	procedure ToucheAdversaire; override; // Adversaire touché
-	procedure CouleAdversaire; override;  // Adversaire coulé
+	procedure ToucheAdversaire(bateau: integer); override; // Adversaire touché
+	procedure CouleAdversaire(bateau: integer); override;  // Adversaire coulé
 	procedure Rate; override; // Coup à l'eau
 	procedure Invalide; override;
 	
@@ -48,13 +48,13 @@ begin
 	fDernierCoup := fAff.DerniereCaseCliquee;
 end;
 
-procedure CJoueurHumain.ToucheAdversaire;
+procedure CJoueurHumain.ToucheAdversaire(bateau: integer);
 begin
 	fAff.ChangerMessage('Touche !');
 	fAff.GrilleOrdinateurTouche(fdernierCoup);
 end;
 
-procedure CJoueurHumain.CouleAdversaire;
+procedure CJoueurHumain.CouleAdversaire(bateau: integer);
 begin
 	fAff.ChangerMessage('Coule !');
 	fAff.GrilleOrdinateurTouche(fdernierCoup);
