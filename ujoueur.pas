@@ -30,8 +30,8 @@ type IJoueur = class
 
 	// Début de partie
 	Procedure PlaceBateau(tailleBateau: integer; var C: TCase; var direction: integer); virtual; abstract;
-    Procedure PlacementOK(C: TCase); virtual;abstract;
-    Procedure PlacementInvalide(C: TCase); virtual;abstract;
+    Procedure PlacementOK(tailleBateau: integer; Cases: array of TCase); virtual; abstract;
+    Procedure PlacementInvalide; virtual;abstract;
 	
 	procedure debug; virtual;
 end;
