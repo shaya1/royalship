@@ -29,9 +29,9 @@ type IJoueur = class
 	procedure Perd; virtual;abstract;
 
 	// Début de partie
-	Procedure PlaceBateau(tailleBateau: integer; var C: TCase, var direction: integer); virtual; abstract;
-    Procedure PlacementOK; virtual;abstract;
-    Procedure PlacementInvalide; virtual;abstract;
+	Procedure PlaceBateau(tailleBateau: integer; var C: TCase; var direction: integer); virtual; abstract;
+    Procedure PlacementOK(C: TCase); virtual;abstract;
+    Procedure PlacementInvalide(C: TCase); virtual;abstract;
 	
 	procedure debug; virtual;
 end;
