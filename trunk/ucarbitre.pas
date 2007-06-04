@@ -76,34 +76,26 @@ procedure Carbitre.MiseEnPlace;
 -1 sens décroissant *)
 
   procedure VerifCollision(Bateau:integer; Plateau1:Tplateau; C:Tcase; Direction:integer; Var Possible:Boolean; Var SensPossible:integer);
-  Var i:integer;
+  Var i, dx, dy:integer;
   begin
-    SensPossible:=1;
     i:=0;
-    if Direction=1 then
-      Repeat
-        if C[1]+Bateau<=10 then begin
-          Possible:=(Plateau1[C[0],C[1]+i]=0);
-          SensPossible:=1;
-        end
-        else begin
-          Possible:=(Plateau1[C[0],C[1]-i]=0);
-          SensPossible:=-1;
-        end;
-        i:=i+1;
-      until (Possible=False) or (i=Bateau)
+    dx := 0;
+    dy := 0;
+    
+    if C[Direction]+Bateau<=10 then
+      SensPossible := 1
     else
-      Repeat
-        if C[0]+Bateau<=10 then begin
-          Possible:=(Plateau1[C[0]+i,C[1]]=0);
-          SensPossible:=1;
-        end
-        else begin
-          Possible:=(Plateau1[C[0]-i,C[1]]=0);
-          SensPossible:=-1;
-        end;
-        i:=i+1;
-      until  (i=Bateau) or (Possible=False);
+      SensPossible := -1;
+    
+    if Direction = 0 then
+      dx := SensPossible
+    else
+      dy := SensPossible;
+    
+    Repeat
+      Possible:=(Plateau1[C[0]+(i*dx),C[1]+(i*dy)]=0);
+      i:=i+1;
+    until (Possible=False) or (i=Bateau)
   end;
   
   procedure MiseajourPlateau(J1:Ijoueur;Var Plateau1:Tplateau; Bateau:integer; C:Tcase; Direction:integer; Possible:boolean; SensPossible:integer);
@@ -114,41 +106,13 @@ procedure Carbitre.MiseEnPlace;
     if Possible=False then
       J1.faff.ChangerMessage('La position de votre navire est invalide. Choisissez un autre endroit')
     else begin
-      if Direction=1 then
-        if SensPossible=1 then begin
-          for i:=0 to Bateau-1 do begin
-            Plateau1[Caux[0],Caux[1]]:=Bateau;
-            J1.PlacementOK(Caux);
-            Caux[1]:=Caux[1]+1;
-          end;
-          
-          J1.faff.ChangerMessage('Navire en position !!');
-        end
-        else begin
-          for i:=0 to Bateau-1 do begin
-            Plateau1[Caux[0],Caux[1]]:=Bateau;
-            J1.PlaceBateau(Caux);
-            Caux[1]:=Caux[1]-1;
-          end;
-          J1.faff.ChangerMessage('Nous sommes prêts ici !!');
-        end
-      else
-        if SensPossible=1 then begin
-          for i:=0 to Bateau-1 do begin
-            Plateau1[Caux[0],Caux[1]]:=Bateau;
-            J1.PlaceBateau(Caux);
-            Caux[0]:=Caux[0]+1;
-          end;
-          J1.faff.ChangerMessage('Paré à faire feu !!');
-        end
-        else begin
-          for i:=0 to Bateau-1 do begin
-            Plateau1[Caux[0],Caux[1]]:=Bateau;
-            J1.PlaceBateau(Caux);
-            Caux[0]:=Caux[0]-1;
-          end;
-          J1.faff.ChangerMessage('A vos Ordres !!');
-        end
+      for i:=0 to Bateau-1 do begin
+        Plateau1[Caux[0],Caux[1]]:=Bateau;
+        J1.PlacementOK(Caux);
+        Caux[Direction]:=Caux[Direction]+SensPossible;
+      end;
+      
+      J1.faff.ChangerMessage('A vos Ordres !!');
     end;
   end;
 
