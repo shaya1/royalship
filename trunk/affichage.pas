@@ -80,7 +80,8 @@ begin
     LastCase[0]:=LastCase[0]-1;
     LastCase[1]:=LastCase[1]-1;
   
-    Arbitre.MiseEnPlace;
+    if (LastCase[0] >= 0) and (LastCase[1] >= 0) then
+      Arbitre.MiseEnPlace;
     
     If Arbitre.JeuEnCours then begin
       ChangerMessage('Navires en Position !!! Parés pour le combat !!');
@@ -90,6 +91,8 @@ end;
 
 procedure TForm1.StringGrid2MouseDown(Sender: TOBject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
+var i, j: integer;
+    C: TCase;
 begin
   If Arbitre.JeuEnCours=True then begin
     Stringgrid2.MousetoCell(X,Y,LastCase[0],LastCase[1]);
@@ -97,6 +100,12 @@ begin
     LastCase[1] := LastCase[1] - 1;
     if (0 <= LastCase[0]) and (0 <= LastCase[1]) and (9 >= LastCase[0]) and (9 >= LastCase[1]) then
       Arbitre.Tour;
+    
+    if Arbitre.JeuEnCours = False then
+    begin
+      Stringgrid1.Clean([gzNormal, gzFixedRows]);
+      Stringgrid2.Clean([gzNormal, gzFixedRows]);
+    end;
   end;
 end;
 
