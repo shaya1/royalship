@@ -94,30 +94,40 @@ procedure Carbitre.MiseEnPlace;
     until (Possible=False) or (i=Bateau)
   end;
   
-  procedure MiseajourPlateau(J1:Ijoueur;Var Plateau1:Tplateau; Bateau:integer; C:Tcase; Direction:integer; Possible:boolean; SensPossible:integer);
+  procedure MiseajourPlateau(J1:Ijoueur;Var Plateau1:Tplateau; Bateau:integer; C:Tcase; Direction:integer; SensPossible:integer);
   Var i:integer; Caux:Tcase; Cases: array[0..5] of TCase;
   begin
     Caux[0]:=C[0];
     Caux[1]:=C[1];
+    
+    for i:=0 to Bateau-1 do begin
+      Plateau1[Caux[0],Caux[1]]:=Bateau;
+      Cases[i] := Caux;
+      Caux[Direction]:=Caux[Direction]+SensPossible;
+    end;
+    
+    J1.PlacementOK(Bateau, Cases);
+  end;
+   
+  function PlaceBateauJoueur(J1: IJoueur): boolean;
+  Var Possible:boolean;C:Tcase;SensPossible,Direction:integer;
+  begin
+    J1.PlaceBateau(ProchainBateau, C, Direction);
+    VerifCollision(ProchainBateau,PlateauH,C,Direction,Possible,SensPossible);
+    
     if Possible=False then
       J1.PlacementInvalide
     else begin
-      for i:=0 to Bateau-1 do begin
-        Plateau1[Caux[0],Caux[1]]:=Bateau;
-        Cases[i] := Caux;
-        Caux[Direction]:=Caux[Direction]+SensPossible;
-      end;
-      
-      J1.PlacementOK(Bateau, Cases);
+      MiseajourPlateau(fjH,PlateauH,ProchainBateau,C,Direction,SensPossible);
+      ProchainBateau := ProchainBateau - 1;
     end;
+    
+    PlaceBateauJoueur := Possible;
   end;
 
-Var Possible:boolean;C:Tcase;SensPossible,Direction:integer;
+
 begin
-  fjH.PlaceBateau(ProchainBateau, C, Direction);
-  VerifCollision(ProchainBateau,PlateauH,C,Direction,Possible,SensPossible);
-  MiseajourPlateau(fjH,PlateauH,ProchainBateau,C,Direction,Possible,SensPossible);
-  ProchainBateau := ProchainBateau - 1;
+  PlaceBateauJoueur(fJH);
   
   if ProchainBateau = 1 then
     EnJeu := True;
