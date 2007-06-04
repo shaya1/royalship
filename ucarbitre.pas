@@ -127,7 +127,9 @@ procedure Carbitre.MiseEnPlace;
 
 
 begin
-  PlaceBateauJoueur(fJH);
+  if PlaceBateauJoueur(fJH) then
+    repeat
+    until PlaceBateauJoueur(fJO);
   
   if ProchainBateau = 1 then
     EnJeu := True;
@@ -176,6 +178,7 @@ procedure Carbitre.Tour();
                 G := false;
           
           if G then begin
+            EnJeu := False;
             J1.Gagne;
             J2.Perd;
           end;
