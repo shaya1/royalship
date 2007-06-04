@@ -29,17 +29,26 @@ Public
   procedure MiseEnPlace;override;
   
   function JeuEnCours: boolean; override;
+
+  procedure InitJeu;
 end;
 
 implementation
 
 Constructor Carbitre.Create();
 begin
-  ProchainBateau := 6;
-  EnJeu := False;
+  
 end;
 
 procedure Carbitre.AjouterJoueur(aj1,aj2:Ijoueur);
+begin
+  fJH:=aj1;
+  fJO:=aj2;
+  
+  InitJeu;
+end;
+
+procedure Carbitre.InitJeu;
 Var i,j : integer;
 begin
   for i:=0 to 9 do
@@ -49,8 +58,8 @@ begin
         PlateauO[i,j]:=0;
       end;
 
-  fJH:=aj1;
-  fJO:=aj2;
+  ProchainBateau := 6;
+  EnJeu := False;
 end;
 
 Destructor Carbitre.Destroy();
@@ -109,17 +118,16 @@ procedure Carbitre.MiseEnPlace;
     J1.PlacementOK(Bateau, Cases);
   end;
    
-  function PlaceBateauJoueur(J1: IJoueur): boolean;
+  function PlaceBateauJoueur(J1: IJoueur; var Plateau1: TPlateau): boolean;
   Var Possible:boolean;C:Tcase;SensPossible,Direction:integer;
   begin
     J1.PlaceBateau(ProchainBateau, C, Direction);
-    VerifCollision(ProchainBateau,PlateauH,C,Direction,Possible,SensPossible);
+    VerifCollision(ProchainBateau,Plateau1,C,Direction,Possible,SensPossible);
     
     if Possible=False then
       J1.PlacementInvalide
     else begin
-      MiseajourPlateau(fjH,PlateauH,ProchainBateau,C,Direction,SensPossible);
-      ProchainBateau := ProchainBateau - 1;
+      MiseajourPlateau(J1,Plateau1,ProchainBateau,C,Direction,SensPossible);
     end;
     
     PlaceBateauJoueur := Possible;
@@ -127,9 +135,11 @@ procedure Carbitre.MiseEnPlace;
 
 
 begin
-  if PlaceBateauJoueur(fJH) then
-    repeat
-    until PlaceBateauJoueur(fJO);
+  if PlaceBateauJoueur(fJH, PlateauH) then
+  begin
+    repeat until PlaceBateauJoueur(fJO, plateauO);
+    ProchainBateau := ProchainBateau - 1;
+  end;
   
   if ProchainBateau = 1 then
     EnJeu := True;
@@ -178,9 +188,9 @@ procedure Carbitre.Tour();
                 G := false;
           
           if G then begin
-            EnJeu := False;
             J1.Gagne;
             J2.Perd;
+            InitJeu;
           end;
         end;
       end;

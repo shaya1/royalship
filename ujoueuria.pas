@@ -28,7 +28,8 @@ type CJoueurIA = class(IJoueur)
 	
 	procedure debug; override;
 private
-
+	procedure InitJeu;
+	
 	fPlateau: array[0..11,0..11] of integer; // 0: inconnu, 1: bateau, 2: coup à l'eau
 	fSize: integer; // taille pile
 	fPile: array[0..99] of TCase;
@@ -38,12 +39,16 @@ end;
 implementation
 
 constructor CJoueurIA.Create(aAff: TForm1);
+begin
+	fAff := aAff;
+	InitJeu;
+end;
+
+procedure CJoueurIA.InitJeu;
 var i, j: integer;
 begin
 	randomize;
 	
-	fAff := aAff;
-
 	for i := 1 to 10 do
 		for j := 1 to 10 do
 			fPlateau[i,j] := 0;
@@ -137,12 +142,12 @@ end;
 
 procedure CJoueurIA.Gagne;
 begin
-	
+	InitJeu;
 end;
 
 procedure CJoueurIA.Perd;
 begin
-	
+	InitJeu;
 end;
 
 procedure CJoueurIA.debug;
