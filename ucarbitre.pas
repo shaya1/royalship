@@ -49,10 +49,6 @@ begin
         PlateauO[i,j]:=0;
       end;
 
-  PlateauO[1,6] := 1;
-  PlateauO[1,7] := 1; 
-  PlateauO[1,8] := 1; 
-  
   fJH:=aj1;
   fJO:=aj2;
 end;
