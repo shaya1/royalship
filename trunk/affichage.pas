@@ -8,7 +8,7 @@ interface
 
 uses
    Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Grids, ExtCtrls, Uiarbitre;
+  Grids, ExtCtrls, Uiarbitre, Buttons;
 
 var arbitre:Iarbitre;
     LastCase:Tcase;
@@ -18,6 +18,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+    Button1: TButton;
     Edit1: TEdit;
     Edit2: TEdit;
     Edit3: TEdit;
