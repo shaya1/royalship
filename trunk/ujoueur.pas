@@ -15,8 +15,8 @@ type IJoueur = class
 	function Jouer: TCase; virtual; abstract;
 	
 	// Résultat de notre coup précédent
-	procedure ToucheAdversaire; virtual; abstract; // Adversaire touché
-	procedure CouleAdversaire; virtual; abstract; // Adversaire coulé
+	procedure ToucheAdversaire(bateau: integer); virtual; abstract; // Adversaire touché
+	procedure CouleAdversaire(bateau: integer); virtual; abstract; // Adversaire coulé
 	procedure Rate; virtual; abstract; // Coup à l'eau
 	procedure Invalide; virtual;abstract;
 	

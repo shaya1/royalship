@@ -173,11 +173,11 @@ procedure Carbitre.Tour();
       else begin
         P2[A[0],A[1]] := P2[A[0],A[1]] * -1;
         if VerifNaufrage(P2[A[0],A[1]] * -1,P2)=False then begin
-          J1.ToucheAdversaire;
+          J1.ToucheAdversaire(P2[A[0],A[1]] * -1);
           J2.ToucheJoueur(A);
         end
         else begin
-          J1.Couleadversaire;
+          J1.Couleadversaire(P2[A[0],A[1]] * -1);
           J2.CouleJoueur(A);
           
           // Verifie si le joueur a gagné (le bateau coule était le seul restant)
