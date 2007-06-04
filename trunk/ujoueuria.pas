@@ -22,6 +22,10 @@ type CJoueurIA = class(IJoueur)
 	procedure Perd; override;
 	procedure Invalide; override;
 
+	Procedure PlaceBateau(tailleBateau: integer; var C: TCase; var direction: integer); override;
+    Procedure PlacementOK(tailleBateau: integer; Cases: array of TCase); override;
+    Procedure PlacementInvalide;  override;
+	
 	procedure debug; override;
 private
 
@@ -156,6 +160,24 @@ begin
 		//write('(', fPile[i][0],',', fPile[i][1],') ')
 	end;
 	////writeln('');
+end;
+
+Procedure CJoueurIA.PlacementOK(tailleBateau: integer; Cases: array of TCase);
+var i: integer;
+Begin
+	
+end;
+
+Procedure CJoueurIA.PlacementInvalide;
+Begin
+	
+end;
+
+Procedure CJoueurIA.PlaceBateau(tailleBateau: integer; var C: TCase; var direction: integer);
+begin
+	C[0] := random(10);
+	C[1] := random(10);
+	direction := random(2);
 end;
 
 end.
