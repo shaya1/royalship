@@ -104,24 +104,13 @@ procedure Carbitre.MiseEnPlace;
 -1 sens décroissant *)
 
   procedure VerifCollision(Bateau:integer; Plateau1:Tplateau; C:Tcase; Direction:integer; Var Possible:Boolean; Var SensPossible:integer);
-  Var i, dx, dy:integer;
+  Var i: integer;
   begin
     i:=0;
-    dx := 0;
-    dy := 0;
-    
-    if C[Direction]+Bateau<=10 then
-      SensPossible := 1
-    else
-      SensPossible := -1;
-    
-    if Direction = 0 then
-      dx := SensPossible
-    else
-      dy := SensPossible;
+    SensPossible := 2*Integer(C[Direction]+Bateau<=10)-1;
     
     Repeat
-      Possible:=(Plateau1[C[0]+(i*dx),C[1]+(i*dy)]=0);
+      Possible:=(Plateau1[C[0]+(i*(Direction xor 1)*SensPossible), C[1]+(i*Direction*SensPossible)]=0);
       i:=i+1;
     until (Possible=False) or (i=Bateau)
   end;
