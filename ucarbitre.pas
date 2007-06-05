@@ -223,13 +223,7 @@ procedure Carbitre.Tour();
 begin
   if Coup(fJh,fJo,PlateauO) then
     repeat
-      writeln('');
-      writeln('Ordinateur joue ');
-      //~ writeln('Plateau humain, selon arbitre:');
-      //~ debug;
     until Coup(fJo,fJh,PlateauH);
-    //~ writeln('Plateau humain, selon IA (apres coup):');
-    //~ fJo.debug;
 end;
   
 function Carbitre.JeuEnCours:boolean;
