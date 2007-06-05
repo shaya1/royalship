@@ -32,9 +32,9 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="bataillenavale"/>
         <CursorPos X="24" Y="3"/>
-        <TopLine Value="1"/>
+        <TopLine Value="27"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -43,10 +43,10 @@
         <IsPartOfProject Value="True"/>
         <ResourceFilename Value="affichage.lrs"/>
         <UnitName Value="Affichage"/>
-        <CursorPos X="22" Y="21"/>
-        <TopLine Value="11"/>
+        <CursorPos X="19" Y="70"/>
+        <TopLine Value="172"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -56,24 +56,24 @@
         <CursorPos X="5" Y="1"/>
         <TopLine Value="1"/>
         <EditorIndex Value="0"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="ucarbitre.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UCarbitre"/>
-        <CursorPos X="40" Y="68"/>
-        <TopLine Value="94"/>
+        <CursorPos X="34" Y="228"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="6"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="ujoueur.pas"/>
         <UnitName Value="UJoueur"/>
         <CursorPos X="39" Y="26"/>
-        <TopLine Value="12"/>
+        <TopLine Value="52"/>
         <EditorIndex Value="5"/>
         <UsageCount Value="15"/>
         <Loaded Value="True"/>
@@ -83,16 +83,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="UJoueurIA"/>
         <CursorPos X="18" Y="158"/>
-        <TopLine Value="40"/>
+        <TopLine Value="170"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="ujoueurhumain.pas"/>
         <UnitName Value="UJoueurHumain"/>
-        <CursorPos X="6" Y="86"/>
-        <TopLine Value="72"/>
+        <CursorPos X="29" Y="161"/>
+        <TopLine Value="137"/>
         <EditorIndex Value="4"/>
         <UsageCount Value="17"/>
         <Loaded Value="True"/>
@@ -105,11 +105,23 @@
         <UsageCount Value="12"/>
       </Unit7>
     </Units>
-    <JumpHistory Count="1" HistoryIndex="0">
+    <JumpHistory Count="4" HistoryIndex="3">
       <Position1>
-        <Filename Value="affichage.pas"/>
-        <Caret Line="122" Column="26" TopLine="118"/>
+        <Filename Value="ujoueurhumain.pas"/>
+        <Caret Line="144" Column="42" TopLine="28"/>
       </Position1>
+      <Position2>
+        <Filename Value="ujoueurhumain.pas"/>
+        <Caret Line="86" Column="11" TopLine="72"/>
+      </Position2>
+      <Position3>
+        <Filename Value="affichage.pas"/>
+        <Caret Line="144" Column="30" TopLine="130"/>
+      </Position3>
+      <Position4>
+        <Filename Value="affichage.pas"/>
+        <Caret Line="63" Column="30" TopLine="171"/>
+      </Position4>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

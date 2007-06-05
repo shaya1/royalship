@@ -73,14 +73,28 @@ end;
 
 procedure CJoueurHumain.ToucheAdversaire(bateau: integer);
 begin
-	fAff.ChangerMessage('Touche !');
+	fAff.ChangerMessage('Touché !');
 	fAff.GrilleOrdinateurTouche(fdernierCoup);
+        Case bateau of
+        2:faff.edit5.text:='Touché !';
+        3:faff.edit4.text:='Touché !';
+        4:faff.edit3.text:='Touché !';
+        5:faff.edit2.text:='Touché !';
+        6:faff.edit1.text:='Touché !';
+        end;
 end;
 
 procedure CJoueurHumain.CouleAdversaire(bateau: integer);
 begin
-	fAff.ChangerMessage('Coule !');
+	fAff.ChangerMessage('Coulé !');
 	fAff.GrilleOrdinateurTouche(fdernierCoup);
+        Case bateau of
+        2:faff.edit5.text:='Coulé';
+        3:faff.edit4.text:='Coulé';
+        4:faff.edit3.text:='Coulé';
+        5:faff.edit2.text:='Coulé';
+        6:faff.edit1.text:='Coulé';
+        end;
 end;
 
 procedure CJoueurHumain.Rate;
@@ -129,12 +143,22 @@ end;
 
 procedure CJoueurHumain.Gagne;
 begin
-	fAff.ChangerMessage('ILS ONT TOUS SOMBRES DANS LES ABYSSES !!');
+	fAff.ChangerMessage('ILS ONT TOUS SOMBRE DANS LES ABYSSES !!');
+        faff.edit5.text:='';
+        faff.edit4.text:='';
+        faff.edit3.text:='';
+        faff.edit2.text:='';
+        faff.edit1.text:='';
 end;
 
 procedure CJoueurHumain.Perd;
 begin
 	fAff.ChangerMessage('NOTRE DERNIER NAVIRE PREND L''EAU DE TOUTE PARTS !!!!');
+        faff.edit5.text:='';
+        faff.edit4.text:='';
+        faff.edit3.text:='';
+        faff.edit2.text:='';
+        faff.edit1.text:='';
 end;
 
 end.

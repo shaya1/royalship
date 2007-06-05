@@ -57,8 +57,11 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    Label9: TLabel;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
+    procedure Button1MouseDown(Sender: TOBject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     Procedure SetArbitre(AArbitre:IArbitre);
     Procedure ChangerMessage(A:string);
     Procedure PositionBateau(C:Tcase);
@@ -88,6 +91,8 @@ Begin
   Arbitre:=AArbitre;
 End;
 
+
+
 //Action à réaliser sur le clic
 //Procedure de placement des bateaux quand on clic sur Stringgrid1 et quand Arbitre.Miseenplaceeff=False
 procedure TForm1.StringGrid1MouseDown(Sender: TOBject; Button: TMouseButton;
@@ -98,7 +103,7 @@ begin
   else
     Lastdirection:=0;
   
-  If Arbitre.JeuEnCours=False then
+  If (Arbitre.JeuEnCours=False) and (Button1.Enabled=False) then
   begin
     Stringgrid1.MousetoCell(X,Y,LastCase[0],Lastcase[1]);
     LastCase[0]:=LastCase[0]-1;
@@ -126,11 +131,19 @@ begin
       Arbitre.Tour;
     
     if Arbitre.JeuEnCours = False then
+      Button1.Enabled:=True;
+  end;
+end;
+
+procedure TForm1.Button1MouseDown(Sender: TOBject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+    if Arbitre.JeuEnCours = False then
     begin
       Stringgrid1.Clean([gzNormal, gzFixedRows]);
       Stringgrid2.Clean([gzNormal, gzFixedRows]);
+      Button1.Enabled:=False;
     end;
-  end;
 end;
 
 //Renvoi de la dernière case et le dernier bouton cliqués dont JoueurHumain a besoin
