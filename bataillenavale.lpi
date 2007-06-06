@@ -32,7 +32,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="bataillenavale"/>
         <CursorPos X="24" Y="3"/>
-        <TopLine Value="27"/>
+        <TopLine Value="21"/>
         <EditorIndex Value="2"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
@@ -43,8 +43,8 @@
         <IsPartOfProject Value="True"/>
         <ResourceFilename Value="affichage.lrs"/>
         <UnitName Value="Affichage"/>
-        <CursorPos X="19" Y="70"/>
-        <TopLine Value="172"/>
+        <CursorPos X="22" Y="44"/>
+        <TopLine Value="43"/>
         <EditorIndex Value="1"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
@@ -63,7 +63,7 @@
         <Filename Value="ucarbitre.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UCarbitre"/>
-        <CursorPos X="34" Y="228"/>
+        <CursorPos X="34" Y="226"/>
         <TopLine Value="1"/>
         <EditorIndex Value="6"/>
         <UsageCount Value="47"/>
@@ -73,7 +73,7 @@
         <Filename Value="ujoueur.pas"/>
         <UnitName Value="UJoueur"/>
         <CursorPos X="39" Y="26"/>
-        <TopLine Value="52"/>
+        <TopLine Value="46"/>
         <EditorIndex Value="5"/>
         <UsageCount Value="15"/>
         <Loaded Value="True"/>
@@ -92,7 +92,7 @@
         <Filename Value="ujoueurhumain.pas"/>
         <UnitName Value="UJoueurHumain"/>
         <CursorPos X="29" Y="161"/>
-        <TopLine Value="137"/>
+        <TopLine Value="131"/>
         <EditorIndex Value="4"/>
         <UsageCount Value="17"/>
         <Loaded Value="True"/>
@@ -105,23 +105,11 @@
         <UsageCount Value="12"/>
       </Unit7>
     </Units>
-    <JumpHistory Count="4" HistoryIndex="3">
+    <JumpHistory Count="1" HistoryIndex="0">
       <Position1>
-        <Filename Value="ujoueurhumain.pas"/>
-        <Caret Line="144" Column="42" TopLine="28"/>
+        <Filename Value="affichage.pas"/>
+        <Caret Line="38" Column="28" TopLine="108"/>
       </Position1>
-      <Position2>
-        <Filename Value="ujoueurhumain.pas"/>
-        <Caret Line="86" Column="11" TopLine="72"/>
-      </Position2>
-      <Position3>
-        <Filename Value="affichage.pas"/>
-        <Caret Line="144" Column="30" TopLine="130"/>
-      </Position3>
-      <Position4>
-        <Filename Value="affichage.pas"/>
-        <Caret Line="63" Column="30" TopLine="171"/>
-      </Position4>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
