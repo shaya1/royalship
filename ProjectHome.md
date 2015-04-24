@@ -1,0 +1,1 @@
+This is our end of year project. It is a simple battleship game written in Pascal. You play versus the computer (no network, (very) basic AI)
